@@ -1,0 +1,112 @@
+/*$primary-color: #AEAEAE;*/
+/*$header-color: #B9A931;*/
+/*$header-background-color: #eaebeb;*/
+/*$header-background-color: rgb(185, 169, 49);*/
+/*$header-color:#266B9F;*/
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('../css/fonts/MerriweatherSans-Light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+.clfwrapper {
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.clfwrapper #primarynav {
+  display: none;
+}
+.slideoutmenuwrapper {
+  width: 250px;
+  background-color: #6BA9D3;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  height: 100%;
+  position: absolute;
+  left: -250px;
+  z-index: 4;
+  display: inline-block;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  box-shadow: 2px 0px 5px #808080;
+}
+.slideoutmenuwrapper .slideoutmenuheader {
+  padding: 30px;
+  box-shadow: 0px 1px 1px white;
+  margin: 0px 0px 10px 0px;
+  position: relative;
+  z-index: 2;
+}
+.slideoutmenuwrapper .slideoutmenuheader h4 {
+  margin: 5px auto;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+#slideoutmenuoptions {
+  /*background-color: scale-lightness($footer-bg-color, 5%);*/
+  width: 100%;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+#slideoutmenuoptions ul {
+  list-style-type: none;
+  margin-left: 0;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 12px;
+}
+#slideoutmenuoptions ul a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  /*border-bottom:1px solid scale-saturation( #6BA9D3, 5%) ;*/
+  box-shadow: 0px 1px 1px #FFF;
+}
+#slideoutmenuoptions ul a:hover {
+  font-size: 13px;
+  cursor: pointer;
+}
+#slideoutmenuoptions ul li ul {
+  background-color: #4083b0;
+  /*background-color: scale-lightness($footer-bg-color, 15%);*/
+  padding: 0px;
+  margin: 0px;
+}
+#slideoutmenuoptions ul li ul li {
+  border-bottom: 1px solid #75a6c7;
+}
+.slideoutmenuwrapper::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  content: '';
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.showslidemenu {
+  left: 0;
+  z-index: 4;
+}
+.slidemenuopenwrapperdeactivatepagewrapper {
+  position: absolute;
+  overflow-x: hidden;
+}

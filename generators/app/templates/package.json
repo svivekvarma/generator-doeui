@@ -1,0 +1,49 @@
+{
+  "name": "dedoe",
+  "version": "3.0.0",
+  "description": "Delaware Department of Education Cohorts Management Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "dev": "lite-server",
+    "app": "concurrent \"npm run dev\" ",
+    "preinstall": "npm install -g grunt && npm install -g grunt-cli && npm install -g bower",
+    "postinstall": "bower cache clean && bower install"
+  },
+  "keywords": [
+    "DEDOE",
+    "DOE",
+    "Delaware",
+    "Department",
+    "Of",
+    "Education"
+  ],
+  "author": "Vivek Varma Siruvuri",
+  "license": "MIT",
+  "devDependencies": {
+    "agentkeepalive": "^2.2.0",
+    "browser-sync": "^2.16.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "csswring": "^3.0.5",
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express": "^1.4.1",
+    "grunt-open": "^0.2.3",
+    "http-proxy-middleware": "^0.17.1",
+    "lite-server": "^2.2.2",
+    "matchdep": "^0.3.0",
+    "requirejs": "^2.1.18"
+  },
+  "dependencies": {
+    "dargs": "^4.0.0"
+  }
+}

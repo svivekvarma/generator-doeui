@@ -1,0 +1,248 @@
+/*$primary-color: #AEAEAE;*/
+/*$header-color: #B9A931;*/
+/*$header-background-color: #eaebeb;*/
+/*$header-background-color: rgb(185, 169, 49);*/
+/*$header-color:#266B9F;*/
+.doedatatable .panel-title {
+  font-size: 12px;
+}
+.approvalinfo {
+  color: #276ca0;
+  font-size: 13px;
+  font-weight: bold;
+}
+.ninetyeightpercent {
+  width: 98%;
+  margin: 0 auto;
+}
+.padme {
+  padding: 25px;
+}
+.doehide {
+  display: none;
+}
+.doeoverlay {
+  min-width: 900px;
+}
+.doeoverlaysized {
+  width: 900px;
+}
+#progresscircle {
+  max-width: 300px;
+}
+.emailtemplatecontainer div.Email {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 1px #ddd;
+}
+.processwindowcontainer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 100px 0px 0px;
+}
+.processwindowcontainer input {
+  disabled: disabled;
+  padding: 5px;
+}
+.processwindowcontainer select {
+  height: 25px;
+  padding: 5px;
+}
+.processwindowcontainer select option {
+  padding: 5px;
+}
+.processwindowcontainer .row {
+  padding: 10px 0px;
+  margin: 0px;
+}
+.processwindowcontainer .row .field1 {
+  display: inline-block;
+  float: left;
+  width: 20%;
+  text-align: right;
+  margin-right: 75px;
+  line-height: 25px;
+}
+.processwindowcontainer .row .field3 {
+  display: inline-block;
+  width: 23%;
+}
+.processwindowcontainer .row .field2 {
+  display: inline-block;
+  width: 23%;
+}
+.processwindowcontainer .row .field4 {
+  display: inline-block;
+  width: 20%;
+}
+.processwindowcontainer .row1 {
+  text-align: center;
+}
+.processwindowcontainer .rowtitle {
+  font-weight: bold;
+}
+.processwindowcontainer .rowtitle .field1 {
+  visibility: hidden;
+}
+.processwindowcontainer .actionrow {
+  text-align: center;
+}
+.processwindowcontainer .actionrow a[type=button] {
+  margin-left: 67px;
+}
+@media only screen and (max-width: 834px) {
+  .processwindowcontainer {
+    padding: 25px;
+  }
+  .processwindowcontainer .row {
+    padding: 10px 0px;
+  }
+  .processwindowcontainer .row .field1 {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 10px auto;
+  }
+  .processwindowcontainer .row .field2::before {
+    content: "Start : ";
+  }
+  .processwindowcontainer .row .field3::before {
+    content: "End : ";
+  }
+  .processwindowcontainer .row .field3,
+  .processwindowcontainer .row .field2,
+  .processwindowcontainer .row .field4 {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .processwindowcontainer .row .field3 .indicator,
+  .processwindowcontainer .row .field2 .indicator,
+  .processwindowcontainer .row .field4 .indicator {
+    display: inline-block;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .processwindowcontainer .row1 {
+    text-align: center;
+  }
+  .processwindowcontainer .rowtitle {
+    display: none;
+  }
+  .processwindowcontainer .actionrow {
+    text-align: center;
+  }
+  .processwindowcontainer .actionrow a[type=button] {
+    float: none;
+    margin-right: 0 auto;
+  }
+}
+.browser-incompatible {
+  width: 100%;
+  padding: 25px;
+}
+.browser-incompatible .informational {
+  margin: 25px;
+  padding: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+.browser-incompatible .browserimages .browsercontainer {
+  width: 24%;
+  height: 450px;
+  overflow: hidden;
+  display: inline-block;
+}
+.browser-incompatible .browserimages .browsercontainer .imagecontainer {
+  width: 95%;
+}
+.browser-incompatible .browserimages .browsercontainer .imagecontainer img {
+  width: 100%;
+}
+.browser-incompatible .browserimages .browsercontainer .title {
+  font-weight: bold;
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
+}
+.browser-incompatible .browserimages .browsercontainer .versions {
+  font-size: 12px;
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
+}
+.browser-incompatible .browserimages .browsercontainer .download {
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
+}
+@media only screen and (max-width: 767px) {
+  .browserimages .browsercontainer {
+    display: block;
+    width: 100%;
+  }
+}
+.customlegend p:first-child,
+.customlegend p::last-child {
+  font-weight: bold;
+}
+.breathetopbottom {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.filename {
+  margin: 0px 5px;
+  /* height: 14px; */
+  padding: 10px;
+}
+.filename .glyphicon {
+  cursor: pointer;
+}
+.indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  border: none;
+  padding: 1px;
+}
+.indicator div {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  border: 1px solid white;
+}
+.redindicator {
+  background-color: red;
+}
+.redindicator div {
+  background-color: inherit;
+}
+.yellowindicator {
+  background-color: yellow;
+}
+.yellowindicator div {
+  background-color: inherit;
+}
+.greenindicator {
+  background-color: limegreen;
+}
+.greenindicator div {
+  background-color: inherit;
+}
+.blueindicator {
+  background-color: #145fe8;
+}
+.blueindicator div {
+  background-color: inherit;
+}
+.blackindicator {
+  background-color: black;
+}
+.blackindicator div {
+  background-color: inherit;
+}
+.filecontainer {
+  margin: 20px ;
+}

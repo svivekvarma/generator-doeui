@@ -1,0 +1,73 @@
+define(['jquery'],
+    function ($) {
+
+        function get(request) {
+            var p = $.ajax({
+                url: './CIPAPI/api/cluster?schoolyear=' + request.SchoolYear,
+                type: 'GET',
+                contentType: 'application/json;charset=utf-8'
+            });
+            return p;
+        }
+
+         function getclusters() {
+            var p = $.ajax({
+                url: './CIPAPI/api/Cluster/GetClusters',
+                type: 'GET',
+                contentType: 'application/json;charset=utf-8'
+            });
+            return p;
+        }
+
+        function remove(request) {
+            var p = $.ajax({
+                url: './CIPAPI/api/cluster',
+                type: 'DELETE',
+                data: JSON.stringify(request),
+                contentType: 'application/json;charset=utf-8'
+            });
+            return p;
+        }
+
+        function add(request) {
+            var p = $.ajax({
+                url: './CIPAPI/api/cluster',
+                type: 'PUT',
+                data: JSON.stringify(request),
+                contentType: 'application/json;charset=utf-8'
+            });
+            return p;
+        }
+
+        function update(request) {
+            var p = $.ajax({
+                url: './CIPAPI/api/cluster',
+                type: 'POST',
+                data: JSON.stringify(request),
+                contentType: 'application/json;charset=utf-8'
+            });
+            return p;
+        }
+
+        function getLookups(request) {
+            var p = $.ajax({
+                url: './CIPAPI/api/cluster/GetLookups',
+                type: 'GET',
+                contentType: 'application/json;charset=utf-8'
+            });
+            return p;
+        }
+
+        return {
+            get: get,
+<<<<<<< HEAD
+            getclusters:getclusters,
+            remove: remove
+=======
+            remove: remove,
+            add : add,
+            update : update,
+            getLookups: getLookups
+>>>>>>> Add all the scaffolding to cleanup the forms and interim checkin for edit functionality
+        };
+    });

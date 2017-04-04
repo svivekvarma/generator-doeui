@@ -1,0 +1,30 @@
+// define(['jquery'],
+//     function ($) {
+
+//         function get() {
+           
+<<<<<<< HEAD
+//                 var p = $.ajax({
+//                     url: './CohortsAPI/api/GetUserIdentity',
+//                     type: 'GET',
+//                     contentType: 'application/json;charset=utf-8'
+//                 });
+//                 return p;
+//         }
+//         return {
+//             get: get
+//         };
+//     });
+=======
+                var p = $.ajax({
+                    url: './CIPAPI/api/GetUserIdentity',
+                    type: 'GET',
+                    contentType: 'application/json;charset=utf-8'
+                });
+                return p;
+        }
+        return {
+            get: get
+        };
+    });
+>>>>>>> dev

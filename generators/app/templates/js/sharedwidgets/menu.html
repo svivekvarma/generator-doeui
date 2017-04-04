@@ -1,0 +1,25 @@
+﻿<nav id="primary_nav_wrap">
+	<ul>
+		{{#model}}
+		<li>
+			<a href="{{ItemUrl}}" data-targetanimation="slideinfromright"><span class="{{ItemIconClass}}" aria-hidden="true" target="_blank"></span>&emsp;{{ItemName}}</a>			{{#if ItemMenus}}
+			<ul>
+
+				{{#each ItemMenus}} {{#if OpenNewTab}}
+				<li>
+					<a href="#" onclick='window.open("{{ItemUrl}}"); return false;' data-targetanimation="slideinfromright"><span class="{{ItemIconClass}}" aria-hidden="true"></span>&emsp;{{ItemName}}</a>
+
+				</li>
+				{{else}}
+				<li>
+					<a href="{{ItemUrl}}" data-targetanimation="slideinfromright"><span class="{{ItemIconClass}}" aria-hidden="true"></span>&emsp;{{ItemName}}</a>
+
+				</li>
+				{{/if}} {{/each}}
+
+			</ul>
+			{{/if}}
+		</li>
+		{{/model}}
+	</ul>
+</nav>
