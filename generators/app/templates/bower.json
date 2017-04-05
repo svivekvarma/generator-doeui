@@ -1,9 +1,9 @@
 {
   "name": "<%=applicationshortname%>",
-  "description": "Delaware Department of Education Cohorts Application",
+  "description": "Delaware Department of Education <%= applicationname%> Application",
   "main": "index.js",
   "authors": [
-    "<%=authorsnames%>"
+    "Vivek Siruvuri"
   ],
   "license": "MIT",
   "keywords": [

@@ -32,7 +32,7 @@ module.exports = class extends Generator {
     //this.directory('less', 'less');
     //this.directory('css', 'css');
     //this.directory('sass', 'sass');
-    
+
     this.fs.copy(
       this.templatePath('configs'),
       this.destinationPath('configs')
@@ -64,8 +64,67 @@ module.exports = class extends Generator {
     );
 
     this.fs.copy(
+      this.templatePath('js'),
+      this.destinationPath('js')
+    );
+
+
+    this.fs.copy(
       this.templatePath('require.js'),
       this.destinationPath('require.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('main.js'),
+      this.destinationPath('main.js')
+    );
+
+
+    this.fs.copy(
+      this.templatePath('gruntfile.js'),
+      this.destinationPath('gruntfile.js')
+    );
+
+
+    this.fs.copy(
+      this.templatePath('build.js'),
+      this.destinationPath('build.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('bs-config.js'),
+      this.destinationPath('bs-config.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('browserupgrade.html'),
+      this.destinationPath('browserupgrade.html')
+    );
+
+
+    this.fs.copy(
+      this.templatePath('app.js'),
+      this.destinationPath('app.js')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('package.json'),
+      this.destinationPath('package.json'),
+      { applicationname: this.props.applicationname, applicationshortname: this.props.applicationshortname }
+    );
+
+
+    this.fs.copyTpl(
+      this.templatePath('index.html'),
+      this.destinationPath('index.html'),
+      { applicationname: this.props.applicationname, applicationshortname: this.props.applicationshortname }
+    );
+
+
+    this.fs.copyTpl(
+      this.templatePath('bower.json'),
+      this.destinationPath('bower.json'),
+      { applicationname: this.props.applicationname, applicationshortname: this.props.applicationshortname }
     );
   }
 

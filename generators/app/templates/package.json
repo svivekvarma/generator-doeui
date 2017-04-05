@@ -1,7 +1,7 @@
 {
-  "name": "dedoe",
+  "name": "<%=applicationshortname%>",
   "version": "3.0.0",
-  "description": "Delaware Department of Education Cohorts Management Application",
+  "description": "Delaware Department of Education - <%=applicationname%>",
   "main": "index.js",
   "scripts": {
     "test": "grunt test",

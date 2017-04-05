@@ -2,7 +2,7 @@
   "name": "generator-doeui",
   "version": "1.0.0",
   "description": "This is a generator for doe ui scaffolding",
-  "homepage": "",
+  "homepage":  "https://github.com/svivekvarma/generator-doeui/blob/master/README.md",
   "author": {
     "name": "Vivek Siruvuri",
     "email": "svivekvarma@gmail.com",
@@ -45,6 +45,12 @@
       "node": true
     }
   },
-  "repository": "svivekvarma/generator-doeui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svivekvarma/generator-doeui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/svivekvarma/generator-doeui.git/issues"
+  },
   "private": true
 }
