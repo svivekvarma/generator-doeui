@@ -15,6 +15,10 @@ define(['jquery',
                 this._super();
                 this._fetchAndRender();
             },
+            _fetchAndRender: function () {
+                this._super();
+                this._compileTemplate();
+            },
             _compileTemplate: function () {
                 this._super();
                 var compiled = Handlebars.compile(tmpl);
@@ -22,15 +26,11 @@ define(['jquery',
                 this._bindEvents();
             },
             _bindEvents: function () {
-                this._super(); 
+                this._super();
             },
             _destroy: function () {
-                this._super();   
-                this.element.html('');
-            },
-            _fetchAndRender: function () {
                 this._super();
-                this._compileTemplate();
+                this.element.html('');
             },
             _setOption: function (key, value) {
                 this._super(key, value);
