@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CodelibraryModelStoreContainer" CdmEntityContainer="CodelibraryEntities">
+    <EntitySetMapping Name="CIP2_Deleted">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2_Deleted">
+        <MappingFragment StoreEntitySet="CIP2_Deleted">
+          <ScalarProperty Name="RID" ColumnName="RID" />
+          <ScalarProperty Name="CIP" ColumnName="CIP" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="FundingLevel" ColumnName="FundingLevel" />
+          <ScalarProperty Name="PathWay" ColumnName="PathWay" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+          <ScalarProperty Name="StateCourseCode" ColumnName="StateCourseCode" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="DeleteReason" ColumnName="DeleteReason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIP2VocDistrict">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2VocDistrict">
+        <MappingFragment StoreEntitySet="CIP2VocDistrict">
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DistrictShortName" ColumnName="DistrictShortName" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIP2VocSchool">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2VocSchool">
+        <MappingFragment StoreEntitySet="CIP2VocSchool">
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolShortName" ColumnName="SchoolShortName" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="Title1" ColumnName="Title1" />
+          <ScalarProperty Name="MultiDistrict" ColumnName="MultiDistrict" />
+          <ScalarProperty Name="NewAcctSch" ColumnName="NewAcctSch" />
+          <ScalarProperty Name="Accountability" ColumnName="Accountability" />
+          <ScalarProperty Name="Charter" ColumnName="Charter" />
+          <ScalarProperty Name="Magnet" ColumnName="Magnet" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Religious" ColumnName="Religious" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Act" ColumnName="Act" />
+          <ScalarProperty Name="EduLevel" ColumnName="EduLevel" />
+          <ScalarProperty Name="ProfileLevel" ColumnName="ProfileLevel" />
+          <ScalarProperty Name="HomeSchool" ColumnName="HomeSchool" />
+          <ScalarProperty Name="Street1" ColumnName="Street1" />
+          <ScalarProperty Name="Street2" ColumnName="Street2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhExtn" ColumnName="PhExtn" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="NcesAgencyID" ColumnName="NcesAgencyID" />
+          <ScalarProperty Name="NcesSchID" ColumnName="NcesSchID" />
+          <ScalarProperty Name="NcesPhone" ColumnName="NcesPhone" />
+          <ScalarProperty Name="NcesSchType" ColumnName="NcesSchType" />
+          <ScalarProperty Name="NcesGradeSpan" ColumnName="NcesGradeSpan" />
+          <ScalarProperty Name="NcesLocCode" ColumnName="NcesLocCode" />
+          <ScalarProperty Name="NcesOpStatus" ColumnName="NcesOpStatus" />
+          <ScalarProperty Name="SeqNum" ColumnName="SeqNum" />
+          <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DirectoryInclusion" ColumnName="DirectoryInclusion" />
+          <ScalarProperty Name="GradeSpan" ColumnName="GradeSpan" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="RouterIP" ColumnName="RouterIP" />
+          <ScalarProperty Name="EdDirName" ColumnName="EdDirName" />
+          <ScalarProperty Name="EmailHS" ColumnName="EmailHS" />
+          <ScalarProperty Name="EmailMS" ColumnName="EmailMS" />
+          <ScalarProperty Name="EmailES" ColumnName="EmailES" />
+          <ScalarProperty Name="SLC" ColumnName="SLC" />
+          <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+          <ScalarProperty Name="ChangeUser" ColumnName="ChangeUser" />
+          <ScalarProperty Name="ChangeAction" ColumnName="ChangeAction" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIP2Year">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2Year">
+        <MappingFragment StoreEntitySet="CIP2Year">
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIP2LocalName">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2LocalName">
+        <MappingFragment StoreEntitySet="CIP2LocalName">
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="CIP" ColumnName="CIP" />
+          <ScalarProperty Name="LocalName" ColumnName="LocalName" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIP2SchoolCross">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2SchoolCross">
+        <MappingFragment StoreEntitySet="CIP2SchoolCross">
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="CIP" ColumnName="CIP" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+          <ScalarProperty Name="NewCIP" ColumnName="NewCIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sexes">
+      <EntityTypeMapping TypeName="CodelibraryModel.Sex">
+        <MappingFragment StoreEntitySet="Sex">
+          <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+          <ScalarProperty Name="Sex1" ColumnName="Sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RollOverCIP" FunctionName="CodelibraryModel.Store.RollOverCIP" />
+    <EntitySetMapping Name="CIP2">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2">
+        <MappingFragment StoreEntitySet="CIP2">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="StateCourseCode" ColumnName="StateCourseCode" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+          <ScalarProperty Name="PathWay" ColumnName="PathWay" />
+          <ScalarProperty Name="FundingLevel" ColumnName="FundingLevel" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CIP" ColumnName="CIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIP2Pathway">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2Pathway">
+        <MappingFragment StoreEntitySet="CIP2Pathway">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+          <ScalarProperty Name="Program" ColumnName="Program" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="PathwayName" ColumnName="PathwayName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIP2School">
+      <EntityTypeMapping TypeName="CodelibraryModel.CIP2School">
+        <MappingFragment StoreEntitySet="CIP2School">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+          <ScalarProperty Name="FlagSC" ColumnName="FlagSC" />
+          <ScalarProperty Name="CIP" ColumnName="CIP" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

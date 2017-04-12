@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CodelibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CIP2">
+    <Key>
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="CIP" Type="decimal" Precision="10" Scale="8" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="200" />
+    <Property Name="FundingLevel" Type="smallint" />
+    <Property Name="PathWay" Type="smallint" />
+    <Property Name="SchoolYear" Type="smallint" Nullable="false" />
+    <Property Name="StateCourseCode" Type="varchar" MaxLength="50" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CIP2_Deleted">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CIP" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="200" />
+    <Property Name="FundingLevel" Type="smallint" />
+    <Property Name="PathWay" Type="smallint" />
+    <Property Name="SchoolYear" Type="smallint" Nullable="false" />
+    <Property Name="StateCourseCode" Type="varchar" MaxLength="50" />
+    <Property Name="DeleteTime" Type="datetime" />
+    <Property Name="DeleteReason" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Codelibrary.dbo.CIP2LocalName' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CIP2LocalName">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="smallint" Nullable="false" />
+    <Property Name="CIP" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="LocalName" Type="varchar" MaxLength="80" />
+    <Property Name="SchoolYear" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CIP2Pathway">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="Code" Type="smallint" Nullable="false" />
+    <Property Name="PathwayName" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="Program" Type="varchar" MaxLength="200" />
+    <Property Name="SchoolYear" Type="smallint" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CIP2School">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="smallint" Nullable="false" />
+    <Property Name="CIP" Type="decimal" Precision="10" Scale="8" Nullable="false" />
+    <Property Name="FlagSC" Type="varchar" MaxLength="8" />
+    <Property Name="SchoolYear" Type="smallint" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Codelibrary.dbo.CIP2SchoolCross' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CIP2SchoolCross">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="smallint" Nullable="false" />
+    <Property Name="CIP" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="SchoolYear" Type="smallint" Nullable="false" />
+    <Property Name="NewCIP" Type="numeric" Precision="10" Scale="7" />
+  </EntityType>
+  <EntityType Name="CIP2VocDistrict">
+    <Key>
+      <PropertyRef Name="DistrictCode" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="DistrictCode" Type="smallint" Nullable="false" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="100" />
+    <Property Name="DistrictShortName" Type="varchar" MaxLength="25" />
+    <Property Name="SchoolYear" Type="char" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CIP2VocSchool">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="smallint" Nullable="false" />
+    <Property Name="Location" Type="int" Nullable="false" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SchoolShortName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="DistrictCode" Type="smallint" Nullable="false" />
+    <Property Name="Title1" Type="char" MaxLength="1" />
+    <Property Name="MultiDistrict" Type="char" MaxLength="1" />
+    <Property Name="NewAcctSch" Type="char" MaxLength="1" />
+    <Property Name="Accountability" Type="char" MaxLength="1" />
+    <Property Name="Charter" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Magnet" Type="char" MaxLength="1" />
+    <Property Name="Type" Type="varchar" MaxLength="20" />
+    <Property Name="Religious" Type="varchar" MaxLength="20" />
+    <Property Name="County" Type="smallint" />
+    <Property Name="Act" Type="char" MaxLength="1" />
+    <Property Name="EduLevel" Type="char" MaxLength="2" />
+    <Property Name="ProfileLevel" Type="char" MaxLength="2" />
+    <Property Name="HomeSchool" Type="char" MaxLength="1" />
+    <Property Name="Street1" Type="varchar" MaxLength="50" />
+    <Property Name="Street2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="PhExtn" Type="varchar" MaxLength="5" />
+    <Property Name="Fax" Type="varchar" MaxLength="15" />
+    <Property Name="NcesAgencyID" Type="int" />
+    <Property Name="NcesSchID" Type="char" MaxLength="5" />
+    <Property Name="NcesPhone" Type="varchar" MaxLength="10" />
+    <Property Name="NcesSchType" Type="tinyint" />
+    <Property Name="NcesGradeSpan" Type="char" MaxLength="4" />
+    <Property Name="NcesLocCode" Type="tinyint" />
+    <Property Name="NcesOpStatus" Type="tinyint" />
+    <Property Name="SeqNum" Type="int" />
+    <Property Name="WebAddress" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="75" />
+    <Property Name="DirectoryInclusion" Type="char" MaxLength="1" />
+    <Property Name="GradeSpan" Type="varchar" MaxLength="12" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="RouterIP" Type="varchar" MaxLength="15" />
+    <Property Name="EdDirName" Type="varchar" MaxLength="100" />
+    <Property Name="EmailHS" Type="tinyint" />
+    <Property Name="EmailMS" Type="tinyint" />
+    <Property Name="EmailES" Type="tinyint" />
+    <Property Name="SLC" Type="varchar" MaxLength="5" />
+    <Property Name="ChangeTime" Type="datetime" />
+    <Property Name="ChangeUser" Type="varchar" MaxLength="20" />
+    <Property Name="ChangeAction" Type="varchar" MaxLength="50" />
+    <Property Name="SchoolYear" Type="char" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CIP2Year">
+    <Key>
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolYear" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="int" Nullable="false" />
+    <Property Name="IsDefault" Type="int" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Codelibrary.dbo.Sex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Sex">
+    <Key>
+      <PropertyRef Name="Sex" />
+    </Key>
+    <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="GenderName" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <Association Name="FK_CIP2_CIP2Pathway">
+    <End Role="CIP2Pathway" Type="Self.CIP2Pathway" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CIP2" Type="Self.CIP2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CIP2Pathway">
+        <PropertyRef Name="Code" />
+        <PropertyRef Name="SchoolYear" />
+      </Principal>
+      <Dependent Role="CIP2">
+        <PropertyRef Name="PathWay" />
+        <PropertyRef Name="SchoolYear" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CIP2School_CIP2">
+    <End Role="CIP2" Type="Self.CIP2" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CIP2School" Type="Self.CIP2School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CIP2">
+        <PropertyRef Name="CIP" />
+        <PropertyRef Name="SchoolYear" />
+      </Principal>
+      <Dependent Role="CIP2School">
+        <PropertyRef Name="CIP" />
+        <PropertyRef Name="SchoolYear" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="RollOverCIP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="CodelibraryModelStoreContainer">
+    <EntitySet Name="CIP2" EntityType="Self.CIP2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIP2_Deleted" EntityType="Self.CIP2_Deleted" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIP2Pathway" EntityType="Self.CIP2Pathway" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIP2School" EntityType="Self.CIP2School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIP2VocDistrict" EntityType="Self.CIP2VocDistrict" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIP2VocSchool" EntityType="Self.CIP2VocSchool" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIP2Year" EntityType="Self.CIP2Year" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIP2LocalName" EntityType="Self.CIP2LocalName" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CIP2LocalName].[SchoolCode] AS [SchoolCode], 
+    [CIP2LocalName].[CIP] AS [CIP], 
+    [CIP2LocalName].[LocalName] AS [LocalName], 
+    [CIP2LocalName].[SchoolYear] AS [SchoolYear]
+    FROM [dbo].[CIP2LocalName] AS [CIP2LocalName]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CIP2SchoolCross" EntityType="Self.CIP2SchoolCross" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CIP2SchoolCross].[SchoolCode] AS [SchoolCode], 
+    [CIP2SchoolCross].[CIP] AS [CIP], 
+    [CIP2SchoolCross].[SchoolYear] AS [SchoolYear], 
+    [CIP2SchoolCross].[NewCIP] AS [NewCIP]
+    FROM [dbo].[CIP2SchoolCross] AS [CIP2SchoolCross]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sex" EntityType="Self.Sex" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Sex].[Sex] AS [Sex], 
+    [Sex].[GenderName] AS [GenderName]
+    FROM [dbo].[Sex] AS [Sex]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CIP2_CIP2Pathway" Association="Self.FK_CIP2_CIP2Pathway">
+      <End Role="CIP2Pathway" EntitySet="CIP2Pathway" />
+      <End Role="CIP2" EntitySet="CIP2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CIP2School_CIP2" Association="Self.FK_CIP2School_CIP2">
+      <End Role="CIP2" EntitySet="CIP2" />
+      <End Role="CIP2School" EntitySet="CIP2School" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

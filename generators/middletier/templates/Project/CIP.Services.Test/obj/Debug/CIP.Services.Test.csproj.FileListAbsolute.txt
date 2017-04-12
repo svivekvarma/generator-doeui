@@ -1,0 +1,15 @@
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\CIP.Services.Test.dll.config
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\CIP.Services.Test.dll
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\CIP.Services.Test.pdb
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\Antlr3.Runtime.dll
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\EntityFramework.dll
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\Newtonsoft.Json.dll
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\WebGrease.dll
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\Antlr3.Runtime.pdb
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\EntityFramework.xml
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\bin\Debug\Newtonsoft.Json.xml
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\obj\Debug\CIP.Services.Test.dll
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\obj\Debug\CIP.Services.Test.pdb
+C:\projects\CIP\Application\Middleware\CIP\CIP.Services.Test\obj\Debug\CIP.Services.Test.csprojResolveAssemblyReference.cache

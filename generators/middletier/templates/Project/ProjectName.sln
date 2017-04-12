@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{<%=SolutionGuid%>}") = "<%=applicationshortname%>.API", "<%=applicationshortname%>.API\<%=applicationshortname%>.API.csproj", "{<%=APIGUID%>}"
+EndProject
+Project("{<%=SolutionGuid%>}") = "<%=applicationshortname%>.Data", "<%=applicationshortname%>.Data\<%=applicationshortname%>.Data.csproj", "{<%=DataGUID%>}"
+EndProject
+Project("{<%=SolutionGuid%>}") = "<%=applicationshortname%>.Models", "<%=applicationshortname%>.Models\<%=applicationshortname%>.Models.csproj", "{<%=ModelsGUID%>}"
+EndProject
+Project("{<%=SolutionGuid%>}") = "<%=applicationshortname%>.Services", "<%=applicationshortname%>.Services\<%=applicationshortname%>.Services.csproj", "{<%=ServicesGUID%>}"
+EndProject
+Project("{<%=SolutionGuid%>}") = "<%=applicationshortname%>.Services.Test", "<%=applicationshortname%>.Services.Test\<%=applicationshortname%>.Services.Test.csproj", "{<%=ServicesTestGUID%>}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{<%=APIGUID%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=APIGUID%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=APIGUID%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=APIGUID%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=DataGUID%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=DataGUID%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=DataGUID%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=DataGUID%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=ModelsGUID%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=ModelsGUID%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=ModelsGUID%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=ModelsGUID%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=ServicesGUID%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=ServicesGUID%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=ServicesGUID%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=ServicesGUID%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=ServicesTestGUID%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=ServicesTestGUID%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=ServicesTestGUID%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=ServicesTestGUID%>}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

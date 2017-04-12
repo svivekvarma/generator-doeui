@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CodelibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CIP2_Deleted">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CIP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FundingLevel" Type="Int16" />
+    <Property Name="PathWay" Type="Int16" />
+    <Property Name="SchoolYear" Type="Int16" Nullable="false" />
+    <Property Name="StateCourseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeleteTime" Type="DateTime" Precision="3" />
+    <Property Name="DeleteReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CIP2VocDistrict">
+    <Key>
+      <PropertyRef Name="DistrictCode" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="DistrictCode" Type="Int16" Nullable="false" />
+    <Property Name="DistrictName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DistrictShortName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CIP2VocSchool">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="Int16" Nullable="false" />
+    <Property Name="Location" Type="Int32" Nullable="false" />
+    <Property Name="SchoolName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SchoolShortName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DistrictCode" Type="Int16" Nullable="false" />
+    <Property Name="Title1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MultiDistrict" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NewAcctSch" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Accountability" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Charter" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Magnet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Religious" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="Int16" />
+    <Property Name="Act" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EduLevel" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ProfileLevel" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="HomeSchool" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Street1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Street2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PhExtn" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NcesAgencyID" Type="Int32" />
+    <Property Name="NcesSchID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="NcesPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NcesSchType" Type="Byte" />
+    <Property Name="NcesGradeSpan" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="NcesLocCode" Type="Byte" />
+    <Property Name="NcesOpStatus" Type="Byte" />
+    <Property Name="SeqNum" Type="Int32" />
+    <Property Name="WebAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="DirectoryInclusion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="GradeSpan" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="RouterIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EdDirName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailHS" Type="Byte" />
+    <Property Name="EmailMS" Type="Byte" />
+    <Property Name="EmailES" Type="Byte" />
+    <Property Name="SLC" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="ChangeTime" Type="DateTime" Precision="3" />
+    <Property Name="ChangeUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ChangeAction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CIP2Year">
+    <Key>
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolYear" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="IsDefault" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CIP2LocalName">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="Int16" Nullable="false" />
+    <Property Name="CIP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocalName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolYear" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CIP2SchoolCross">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="Int16" Nullable="false" />
+    <Property Name="CIP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SchoolYear" Type="Int16" Nullable="false" />
+    <Property Name="NewCIP" Type="Decimal" Precision="10" Scale="7" />
+  </EntityType>
+  <EntityContainer Name="CodelibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CIP2_Deleted" EntityType="Self.CIP2_Deleted" />
+    <EntitySet Name="CIP2VocDistrict" EntityType="Self.CIP2VocDistrict" />
+    <EntitySet Name="CIP2VocSchool" EntityType="Self.CIP2VocSchool" />
+    <EntitySet Name="CIP2Year" EntityType="Self.CIP2Year" />
+    <EntitySet Name="CIP2LocalName" EntityType="Self.CIP2LocalName" />
+    <EntitySet Name="CIP2SchoolCross" EntityType="Self.CIP2SchoolCross" />
+    <EntitySet Name="Sexes" EntityType="CodelibraryModel.Sex" />
+    <FunctionImport Name="RollOverCIP" ReturnType="Collection(Boolean)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="CIP2" EntityType="CodelibraryModel.CIP2" />
+    <EntitySet Name="CIP2Pathway" EntityType="CodelibraryModel.CIP2Pathway" />
+    <EntitySet Name="CIP2School" EntityType="CodelibraryModel.CIP2School" />
+    <AssociationSet Name="FK_CIP2_CIP2Pathway" Association="CodelibraryModel.FK_CIP2_CIP2Pathway">
+      <End Role="CIP2Pathway" EntitySet="CIP2Pathway" />
+      <End Role="CIP2" EntitySet="CIP2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CIP2School_CIP2" Association="CodelibraryModel.FK_CIP2School_CIP2">
+      <End Role="CIP2" EntitySet="CIP2" />
+      <End Role="CIP2School" EntitySet="CIP2School" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Sex">
+    <Key>
+      <PropertyRef Name="Sex1" />
+    </Key>
+    <Property Name="Sex1" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="GenderName" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CIP2">
+    <Key>
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="CIP" Type="Decimal" Nullable="false" Precision="10" Scale="8" />
+    <Property Name="CourseName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FundingLevel" Type="Int16" />
+    <Property Name="PathWay" Type="Int16" />
+    <Property Name="SchoolYear" Type="Int16" Nullable="false" />
+    <Property Name="StateCourseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CIP2Pathway" Relationship="CodelibraryModel.FK_CIP2_CIP2Pathway" FromRole="CIP2" ToRole="CIP2Pathway" />
+    <NavigationProperty Name="CIP2School" Relationship="CodelibraryModel.FK_CIP2School_CIP2" FromRole="CIP2" ToRole="CIP2School" />
+  </EntityType>
+  <EntityType Name="CIP2Pathway">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="Code" Type="Int16" Nullable="false" />
+    <Property Name="PathwayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Program" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolYear" Type="Int16" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CIP2" Relationship="CodelibraryModel.FK_CIP2_CIP2Pathway" FromRole="CIP2Pathway" ToRole="CIP2" />
+  </EntityType>
+  <EntityType Name="CIP2School">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="CIP" />
+      <PropertyRef Name="SchoolYear" />
+    </Key>
+    <Property Name="SchoolCode" Type="Int16" Nullable="false" />
+    <Property Name="CIP" Type="Decimal" Nullable="false" Precision="10" Scale="8" />
+    <Property Name="FlagSC" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolYear" Type="Int16" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CIP2" Relationship="CodelibraryModel.FK_CIP2School_CIP2" FromRole="CIP2School" ToRole="CIP2" />
+  </EntityType>
+  <Association Name="FK_CIP2_CIP2Pathway">
+    <End Type="CodelibraryModel.CIP2Pathway" Role="CIP2Pathway" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CodelibraryModel.CIP2" Role="CIP2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CIP2Pathway">
+        <PropertyRef Name="Code" />
+        <PropertyRef Name="SchoolYear" />
+      </Principal>
+      <Dependent Role="CIP2">
+        <PropertyRef Name="PathWay" />
+        <PropertyRef Name="SchoolYear" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CIP2School_CIP2">
+    <End Type="CodelibraryModel.CIP2" Role="CIP2" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CodelibraryModel.CIP2School" Role="CIP2School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CIP2">
+        <PropertyRef Name="CIP" />
+        <PropertyRef Name="SchoolYear" />
+      </Principal>
+      <Dependent Role="CIP2School">
+        <PropertyRef Name="CIP" />
+        <PropertyRef Name="SchoolYear" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
