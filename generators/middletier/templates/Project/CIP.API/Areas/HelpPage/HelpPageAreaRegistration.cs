@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace CIP.API.Areas.HelpPage
+namespace <%=applicationshortname%>.API.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

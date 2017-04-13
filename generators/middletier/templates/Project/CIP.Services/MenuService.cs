@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CIP.Models;
-using CIP.Data;
+using <%=applicationshortname%>.Models;
+using <%=applicationshortname%>.Data;
 
-namespace CIP.Services
+namespace <%=applicationshortname%>.Services
 {
     public class MenuService
     {

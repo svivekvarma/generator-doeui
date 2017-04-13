@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http.Filters;
 
-namespace CIP.API.helpers
+namespace <%=applicationshortname%>.API.helpers
 {
     public class UnhandledExceptionFilter : ExceptionFilterAttribute
     {

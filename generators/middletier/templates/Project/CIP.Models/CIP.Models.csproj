@@ -72,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\<%=applicationshortname%>.Data\<%=applicationshortname%>.Data.csproj">
-      <Project>{<%=DataGUID%>>}</Project>
+      <Project>{<%=DataGUID%>}</Project>
       <Name><%=applicationshortname%>.Data</Name>
     </ProjectReference>
   </ItemGroup>

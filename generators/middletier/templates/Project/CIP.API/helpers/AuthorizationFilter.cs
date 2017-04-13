@@ -1,16 +1,16 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using System.DirectoryServices.AccountManagement;
-using CIP.Data;
-using CIP.Services;
+using <%=applicationshortname%>.Data;
+using <%=applicationshortname%>.Services;
 using System.Linq;
 using System.Web.Http.Filters;
 using System.Security;
 using System.Web;
-using CIP.API.Utility;
+using <%=applicationshortname%>.API.Utility;
 using System.Configuration;
 
-namespace CIP.API.helpers
+namespace <%=applicationshortname%>.API.helpers
 {
     //In WebAPI the inheritance must be from system.web.http - regular authorizeAttribute is an MVC inherit (this will not work)
     public class CustomAuthorizeAttribute : System.Web.Http.AuthorizeAttribute

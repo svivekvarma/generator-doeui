@@ -1,4 +1,4 @@
-namespace CIP.API.Areas.HelpPage
+namespace <%=applicationshortname%>.API.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

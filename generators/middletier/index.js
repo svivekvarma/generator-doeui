@@ -153,6 +153,16 @@ module.exports = class extends Generator {
       }
     );
 
+
+    this.fs.copyTpl(
+      this.templatePath('Project/CIP.Data/Class1.cs'),
+      this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.Data' + '/Class1.cs'),
+      {
+        applicationshortname: this.props.applicationshortname,
+        DataGUID: this.props.DataGUID
+      }
+    );
+
     /*Start creating Services Project*/
 
     mkdirp(this.props.applicationshortname + '/' + this.props.applicationshortname + '.Services');
@@ -185,6 +195,16 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('Project/CIP.Services/Properties/AssemblyInfo.cs'),
       this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.Services' + '/Properties/AssemblyInfo.cs'),
+      {
+        applicationshortname: this.props.applicationshortname,
+        ServicesGUID: this.props.ServicesGUID,
+      }
+    );
+
+
+    this.fs.copyTpl(
+      this.templatePath('Project/CIP.Services/MenuService.cs'),
+      this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.Services' + '/MenuService.cs'),
       {
         applicationshortname: this.props.applicationshortname,
         ServicesGUID: this.props.ServicesGUID,
@@ -331,7 +351,7 @@ module.exports = class extends Generator {
       ModelsGUID: this.props.ModelsGUID,
       ServicesGUID: this.props.ServicesGUID,
       ServicesTestGUID: this.props.ServicesTestGUID,
-      asaxentry : '<%@ Application Codebehind'
+      asaxentry: '<%@ Application Codebehind'
     };
 
     this.fs.copyTpl(
@@ -402,6 +422,75 @@ module.exports = class extends Generator {
       this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/App_Start/WebApiConfig.cs'),
       vals
     );
+
+    this.fs.copyTpl(
+      this.templatePath('Project/CIP.API/helpers/AuthorizationFilter.cs'),
+      this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/helpers/AuthorizationFilter.cs'),
+      vals
+    );
+
+
+    this.fs.copyTpl(
+      this.templatePath('Project/CIP.API/helpers/UnhandledExceptionFilter.cs'),
+      this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/helpers/UnhandledExceptionFilter.cs'),
+      vals
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('Project/CIP.API/helpers/Utility.cs'),
+      this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/helpers/Utility.cs'),
+      vals
+    );
+
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ApiDescriptionExtensions.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ApiDescriptionExtensions.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/HelpPage.css'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/HelpPage.css'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/HelpPageAreaRegistration.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/HelpPageAreaRegistration.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/HelpPageConfigurationExtensions.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/HelpPageConfigurationExtensions.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/XmlDocumentationProvider.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/XmlDocumentationProvider.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/App_Start/HelpPageConfig.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/App_Start/HelpPageConfig.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Controllers/HelpController.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Controllers/HelpController.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/CollectionModelDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/CollectionModelDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/ComplexTypeModelDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/ComplexTypeModelDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/DictionaryModelDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/DictionaryModelDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/EnumTypeModelDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/EnumTypeModelDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/EnumValueDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/EnumValueDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/IModelDocumentationProvider.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/IModelDocumentationProvider.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/KeyValuePairModelDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/KeyValuePairModelDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/ModelDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/ModelDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/ModelDescriptionGenerator.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/ModelDescriptionGenerator.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/ModelNameAttribute.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/ModelNameAttribute.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/ModelNameHelper.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/ModelNameHelper.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/ParameterAnnotation.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/ParameterAnnotation.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/ParameterDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/ParameterDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/ModelDescriptions/SimpleTypeModelDescription.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/ModelDescriptions/SimpleTypeModelDescription.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Models/HelpPageApiModel.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Models/HelpPageApiModel.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/SampleGeneration/HelpPageSampleGenerator.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/SampleGeneration/HelpPageSampleGenerator.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/SampleGeneration/HelpPageSampleKey.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/SampleGeneration/HelpPageSampleKey.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/SampleGeneration/ImageSample.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/SampleGeneration/ImageSample.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/SampleGeneration/InvalidSample.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/SampleGeneration/InvalidSample.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/SampleGeneration/ObjectGenerator.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/SampleGeneration/ObjectGenerator.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/SampleGeneration/SampleDirection.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/SampleGeneration/SampleDirection.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/SampleGeneration/TextSample.cs'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/SampleGeneration/TextSample.cs'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Web.config'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Web.config'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/_ViewStart.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/_ViewStart.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/Api.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/Api.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/Index.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/Index.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/ResourceModel.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/ResourceModel.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/CollectionModelDescription.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/CollectionModelDescription.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/ComplexTypeModelDescription.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/ComplexTypeModelDescription.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/DictionaryModelDescription.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/DictionaryModelDescription.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/EnumTypeModelDescription.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/EnumTypeModelDescription.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/KeyValuePairModelDescription.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/KeyValuePairModelDescription.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/ModelDescriptionLink.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/ModelDescriptionLink.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/SimpleTypeModelDescription.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/SimpleTypeModelDescription.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml'), vals);
+    this.fs.copyTpl(this.templatePath('Project/CIP.API/Areas/HelpPage/Views/Shared/_Layout.cshtml'), this.destinationPath(this.props.applicationshortname + '/' + this.props.applicationshortname + '.API' + '/Areas/HelpPage/Views/Shared/_Layout.cshtml'), vals);
 
 
 

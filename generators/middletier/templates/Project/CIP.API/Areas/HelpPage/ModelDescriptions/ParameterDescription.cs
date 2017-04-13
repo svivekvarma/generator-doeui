@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace CIP.API.Areas.HelpPage.ModelDescriptions
+namespace <%=applicationshortname%>.API.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

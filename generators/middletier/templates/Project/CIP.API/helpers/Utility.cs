@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.DirectoryServices.AccountManagement;
 
-namespace CIP.API.Utility
+namespace <%=applicationshortname%>.API.Utility
 {
     [DirectoryRdnPrefix("CN")]
     [DirectoryObjectClass("user")]

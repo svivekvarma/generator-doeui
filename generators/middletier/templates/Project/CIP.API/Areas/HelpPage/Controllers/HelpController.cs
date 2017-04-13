@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using CIP.API.Areas.HelpPage.ModelDescriptions;
-using CIP.API.Areas.HelpPage.Models;
+using <%=applicationshortname%>.API.Areas.HelpPage.ModelDescriptions;
+using <%=applicationshortname%>.API.Areas.HelpPage.Models;
 
-namespace CIP.API.Areas.HelpPage.Controllers
+namespace <%=applicationshortname%>.API.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.
