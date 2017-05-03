@@ -5,7 +5,7 @@ define(['jquery',
     'js/vendor/text!js/pagewidgets/pagesubwidgets/<%=widgetname%>.html'],
     function ($, ui, Handlebars, moment, tmpl) {
 
-        $.widget("doe.<%=widgetname%>", $.doe.toywizardstepbase, {
+        $.widget("doe.<%=widgetname%>", $.doe.wizardstepbase, {
             // Options to be used as defaults
             options: {
                 params: {},
