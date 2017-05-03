@@ -4,7 +4,8 @@ define(['jquery',
     'moment',
     'js/vendor/text!js/pagewidgets/pagesubwidgets/<%=widgetname%>.html'],
     function ($, ui, Handlebars, moment, tmpl) {
-
+        "use strict";
+        
         $.widget("doe.<%=widgetname%>", $.doe.wizardstepbase, {
             // Options to be used as defaults
             options: {
