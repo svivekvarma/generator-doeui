@@ -7,10 +7,11 @@ define(['jquery',
         "use strict";
         
         $.widget("doe.<%=widgetname%>", $.doe.wizardstepbase, {
-            // Options to be used as defaults
+           // Options to be used as defaults
             options: {
                 params: {},
                 data: {},
+                stepModel:{},
                 totalSteps:{},
                 isLastStep : {},
                 isFirstStep : {}
@@ -19,12 +20,14 @@ define(['jquery',
                 this._fetchAndRender();
             },
             _fetchAndRender: function () {
-                this._super();
-                this._compileTemplate();
+                var p = this._super();
+                p.done($.proxy(function(){
+                    this._compileTemplate();
+                }, this));
             },
             _compileTemplate: function () {
                 var compiled = Handlebars.compile(tmpl);
-                this.element.html(compiled({}));
+                this.element.html(compiled(this.options.stepModel));
                 this._super();
                 this._bindEvents();
             },
@@ -43,5 +46,3 @@ define(['jquery',
             }
         });
     });
-
-
