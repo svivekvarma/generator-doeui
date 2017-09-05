@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEMO.Models", "DEMO.Models\DEMO.Models.csproj", "{550CF85E-1CDB-480F-812C-E9E6BAEE8C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEMO.Services", "DEMO.Services\DEMO.Services.csproj", "{56D04F7A-9DF8-4E20-9748-9766FBB2504C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEMO.Services.Test", "DEMO.Servics.Test\DEMO.Services.Test.csproj", "{BA906C38-8C01-4AAF-B640-83432DB19436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEMO.Data", "DEMO.Data\DEMO.Data.csproj", "{19370D33-E3E0-4D6B-85F9-893D7AAEB4AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEMO.API", "DEMO.API\DEMO.API.csproj", "{FE01CA8C-1B35-4178-ABE8-A544D0795B80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{548E7525-8304-45B5-9686-D5AF9CE21E43}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{550CF85E-1CDB-480F-812C-E9E6BAEE8C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550CF85E-1CDB-480F-812C-E9E6BAEE8C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550CF85E-1CDB-480F-812C-E9E6BAEE8C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550CF85E-1CDB-480F-812C-E9E6BAEE8C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D04F7A-9DF8-4E20-9748-9766FBB2504C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D04F7A-9DF8-4E20-9748-9766FBB2504C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D04F7A-9DF8-4E20-9748-9766FBB2504C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D04F7A-9DF8-4E20-9748-9766FBB2504C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA906C38-8C01-4AAF-B640-83432DB19436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA906C38-8C01-4AAF-B640-83432DB19436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA906C38-8C01-4AAF-B640-83432DB19436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA906C38-8C01-4AAF-B640-83432DB19436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19370D33-E3E0-4D6B-85F9-893D7AAEB4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19370D33-E3E0-4D6B-85F9-893D7AAEB4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19370D33-E3E0-4D6B-85F9-893D7AAEB4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19370D33-E3E0-4D6B-85F9-893D7AAEB4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE01CA8C-1B35-4178-ABE8-A544D0795B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE01CA8C-1B35-4178-ABE8-A544D0795B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE01CA8C-1B35-4178-ABE8-A544D0795B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE01CA8C-1B35-4178-ABE8-A544D0795B80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

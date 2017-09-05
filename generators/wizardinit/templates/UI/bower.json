@@ -1,0 +1,47 @@
+{
+  "name": "aar",
+  "description": "Delaware Department of Education Awards Recognition Application",
+  "main": "index.js",
+  "authors": [
+    "Vivek Siruvuri"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "DEDOE",
+    "DOE",
+    "Delaware",
+    "Department",
+    "Of",
+    "Education"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery-ui": "^1.12.1",
+    "jquery": "^3.1.1",
+    "jquery.serializeJSON": "^2.7.2",
+    "hammerjs": "^2.0.8",
+    "handlebars": "^4.0.5",
+    "underscore": "^1.8.3",
+    "moment": "momentjs#^2.15.1",
+    "jquery-validation": "^1.15.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.43",
+    "vwidget-grid": "*",
+    "fastclick": "^1.0.6",
+    "normalize-css": "^5.0.0",
+    "jquerypp": "^2.0.2",
+    "vOverlay": "*",
+    "font-awesome": "fontawesome#^4.7.0"
+  },
+  "devDependencies": {
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}

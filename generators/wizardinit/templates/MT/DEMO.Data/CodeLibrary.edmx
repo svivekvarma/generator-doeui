@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CodelibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="DistrictCode" />
+            <PropertyRef Name="SchoolYear" />
+          </Key>
+          <Property Name="DistrictCode" Type="smallint" Nullable="false" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="100" />
+          <Property Name="DistrictShortName" Type="varchar" MaxLength="25" />
+          <Property Name="DepartmentKey" Type="int" />
+          <Property Name="DistrictKey" Type="int" />
+          <Property Name="EdStatsSort" Type="int" />
+          <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="County" Type="smallint" />
+          <Property Name="SLC" Type="varchar" MaxLength="5" />
+          <Property Name="Street1" Type="varchar" MaxLength="50" />
+          <Property Name="Street2" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="Fax" Type="varchar" MaxLength="15" />
+          <Property Name="EdenInclude" Type="char" MaxLength="1" />
+          <Property Name="NcesAgencyID" Type="int" />
+          <Property Name="NcesAgencyType" Type="tinyint" />
+          <Property Name="NcesFIPSCnty" Type="int" />
+          <Property Name="NcesGradeSpan" Type="char" MaxLength="4" />
+          <Property Name="NcesOpStatus" Type="tinyint" />
+          <Property Name="NcesPhone" Type="char" MaxLength="10" />
+          <Property Name="PEI_User" Type="char" MaxLength="1" />
+          <Property Name="WebAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="75" />
+          <Property Name="DirectoryInclusion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="RouterIP" Type="varchar" MaxLength="15" />
+          <Property Name="FRLunchPct" Type="real" />
+          <Property Name="Title1Eligible" Type="char" MaxLength="1" />
+          <Property Name="Title3" Type="char" MaxLength="1" />
+          <Property Name="McK_Vinto" Type="char" MaxLength="1" />
+          <Property Name="Act" Type="char" MaxLength="1" />
+          <Property Name="SchoolYear" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Accountability" Type="char" MaxLength="1" />
+          <Property Name="ChangeTime" Type="datetime" />
+          <Property Name="ChangeUser" Type="varchar" MaxLength="255" />
+          <Property Name="IMSInclude" Type="bit" />
+          <Property Name="NonPublicDistrict" Type="int" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolYear" />
+            <PropertyRef Name="SchoolCode" />
+          </Key>
+          <Property Name="SchoolYear" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="SchoolCode" Type="smallint" Nullable="false" />
+          <Property Name="Location" Type="int" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="100" />
+          <Property Name="SchoolShortName" Type="varchar" MaxLength="25" />
+          <Property Name="DistrictCode" Type="smallint" />
+          <Property Name="DepartmentKey" Type="int" />
+          <Property Name="DistrictKey" Type="int" />
+          <Property Name="LocationKey" Type="int" />
+          <Property Name="Title1" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FRLunchPct" Type="real" />
+          <Property Name="SuplServices" Type="char" MaxLength="1" />
+          <Property Name="ChoiceEntry" Type="char" MaxLength="1" />
+          <Property Name="ChoiceWithdraw" Type="char" MaxLength="1" />
+          <Property Name="MultiDistrict" Type="char" MaxLength="1" />
+          <Property Name="NewAcctSch" Type="char" MaxLength="1" />
+          <Property Name="Accountability" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="EdenInclude" Type="char" MaxLength="1" />
+          <Property Name="Charter" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Magnet" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Religious" Type="varchar" MaxLength="20" />
+          <Property Name="County" Type="smallint" />
+          <Property Name="UrbanArea" Type="char" MaxLength="1" />
+          <Property Name="Act" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="EduLevel" Type="char" MaxLength="2" />
+          <Property Name="ProfileLevel" Type="char" MaxLength="2" />
+          <Property Name="HomeSchool" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Street1" Type="varchar" MaxLength="50" />
+          <Property Name="Street2" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="PhExtn" Type="varchar" MaxLength="5" />
+          <Property Name="Fax" Type="varchar" MaxLength="15" />
+          <Property Name="NcesAgencyID" Type="int" />
+          <Property Name="NcesPriorLEAID" Type="int" />
+          <Property Name="NcesSchID" Type="char" MaxLength="10" />
+          <Property Name="NcesPhone" Type="varchar" MaxLength="10" />
+          <Property Name="NcesSchType" Type="tinyint" />
+          <Property Name="NcesGradeSpan" Type="char" MaxLength="4" />
+          <Property Name="NcesLocCode" Type="tinyint" />
+          <Property Name="NcesOpStatus" Type="tinyint" />
+          <Property Name="SeqNum" Type="int" Nullable="false" />
+          <Property Name="WebAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="75" />
+          <Property Name="DirectoryInclusion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="GradeSpan" Type="varchar" MaxLength="12" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="RouterIP" Type="varchar" MaxLength="15" />
+          <Property Name="EdDirName" Type="varchar" MaxLength="100" />
+          <Property Name="EmailHS" Type="tinyint" />
+          <Property Name="EmailMS" Type="tinyint" />
+          <Property Name="EmailES" Type="tinyint" />
+          <Property Name="SLC" Type="varchar" MaxLength="5" />
+          <Property Name="ScienceKitsBilling" Type="char" MaxLength="1" />
+          <Property Name="ChangeTime" Type="datetime" />
+          <Property Name="ChangeUser" Type="varchar" MaxLength="20" />
+          <Property Name="ChangeAction" Type="varchar" MaxLength="50" />
+          <Property Name="ProfileSchool" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Latitude" Type="varchar" MaxLength="20" />
+          <Property Name="Longitude" Type="varchar" MaxLength="20" />
+          <Property Name="NCESCharter" Type="varchar" MaxLength="20" />
+          <Property Name="IMSInclude" Type="bit" />
+          <Property Name="EschoolBuilding" Type="int" />
+          <Property Name="NonPublicDistrict" Type="int" />
+        </EntityType>
+        <EntityContainer Name="CodelibraryModelStoreContainer">
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CodelibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="DistrictCode" />
+            <PropertyRef Name="SchoolYear" />
+          </Key>
+          <Property Name="DistrictCode" Type="Int16" Nullable="false" />
+          <Property Name="DistrictName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictShortName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentKey" Type="Int32" />
+          <Property Name="DistrictKey" Type="Int32" />
+          <Property Name="EdStatsSort" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="County" Type="Int16" />
+          <Property Name="SLC" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Street1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Street2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EdenInclude" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NcesAgencyID" Type="Int32" />
+          <Property Name="NcesAgencyType" Type="Byte" />
+          <Property Name="NcesFIPSCnty" Type="Int32" />
+          <Property Name="NcesGradeSpan" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="NcesOpStatus" Type="Byte" />
+          <Property Name="NcesPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PEI_User" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="WebAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="DirectoryInclusion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="RouterIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FRLunchPct" Type="Single" />
+          <Property Name="Title1Eligible" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Title3" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="McK_Vinto" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Act" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Accountability" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ChangeTime" Type="DateTime" Precision="3" />
+          <Property Name="ChangeUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IMSInclude" Type="Boolean" />
+          <Property Name="NonPublicDistrict" Type="Int32" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolYear" />
+            <PropertyRef Name="SchoolCode" />
+          </Key>
+          <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SchoolCode" Type="Int16" Nullable="false" />
+          <Property Name="Location" Type="Int32" />
+          <Property Name="SchoolName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolShortName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictCode" Type="Int16" />
+          <Property Name="DepartmentKey" Type="Int32" />
+          <Property Name="DistrictKey" Type="Int32" />
+          <Property Name="LocationKey" Type="Int32" />
+          <Property Name="Title1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="FRLunchPct" Type="Single" />
+          <Property Name="SuplServices" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ChoiceEntry" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ChoiceWithdraw" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MultiDistrict" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NewAcctSch" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Accountability" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EdenInclude" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Charter" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Magnet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Religious" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="Int16" />
+          <Property Name="UrbanArea" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Act" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EduLevel" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ProfileLevel" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="HomeSchool" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Street1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Street2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PhExtn" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="NcesAgencyID" Type="Int32" />
+          <Property Name="NcesPriorLEAID" Type="Int32" />
+          <Property Name="NcesSchID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="NcesPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NcesSchType" Type="Byte" />
+          <Property Name="NcesGradeSpan" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="NcesLocCode" Type="Byte" />
+          <Property Name="NcesOpStatus" Type="Byte" />
+          <Property Name="SeqNum" Type="Int32" Nullable="false" />
+          <Property Name="WebAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="DirectoryInclusion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="GradeSpan" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="RouterIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EdDirName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailHS" Type="Byte" />
+          <Property Name="EmailMS" Type="Byte" />
+          <Property Name="EmailES" Type="Byte" />
+          <Property Name="SLC" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ScienceKitsBilling" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ChangeTime" Type="DateTime" Precision="3" />
+          <Property Name="ChangeUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ChangeAction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileSchool" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NCESCharter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IMSInclude" Type="Boolean" />
+          <Property Name="EschoolBuilding" Type="Int32" />
+          <Property Name="NonPublicDistrict" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="CodelibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Districts" EntityType="Self.District" />
+          <EntitySet Name="Schools" EntityType="Self.School" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodelibraryModelStoreContainer" CdmEntityContainer="CodelibraryEntities">
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="CodelibraryModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="DistrictShortName" ColumnName="DistrictShortName" />
+                <ScalarProperty Name="DepartmentKey" ColumnName="DepartmentKey" />
+                <ScalarProperty Name="DistrictKey" ColumnName="DistrictKey" />
+                <ScalarProperty Name="EdStatsSort" ColumnName="EdStatsSort" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="SLC" ColumnName="SLC" />
+                <ScalarProperty Name="Street1" ColumnName="Street1" />
+                <ScalarProperty Name="Street2" ColumnName="Street2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="EdenInclude" ColumnName="EdenInclude" />
+                <ScalarProperty Name="NcesAgencyID" ColumnName="NcesAgencyID" />
+                <ScalarProperty Name="NcesAgencyType" ColumnName="NcesAgencyType" />
+                <ScalarProperty Name="NcesFIPSCnty" ColumnName="NcesFIPSCnty" />
+                <ScalarProperty Name="NcesGradeSpan" ColumnName="NcesGradeSpan" />
+                <ScalarProperty Name="NcesOpStatus" ColumnName="NcesOpStatus" />
+                <ScalarProperty Name="NcesPhone" ColumnName="NcesPhone" />
+                <ScalarProperty Name="PEI_User" ColumnName="PEI_User" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DirectoryInclusion" ColumnName="DirectoryInclusion" />
+                <ScalarProperty Name="RouterIP" ColumnName="RouterIP" />
+                <ScalarProperty Name="FRLunchPct" ColumnName="FRLunchPct" />
+                <ScalarProperty Name="Title1Eligible" ColumnName="Title1Eligible" />
+                <ScalarProperty Name="Title3" ColumnName="Title3" />
+                <ScalarProperty Name="McK_Vinto" ColumnName="McK_Vinto" />
+                <ScalarProperty Name="Act" ColumnName="Act" />
+                <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+                <ScalarProperty Name="Accountability" ColumnName="Accountability" />
+                <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+                <ScalarProperty Name="ChangeUser" ColumnName="ChangeUser" />
+                <ScalarProperty Name="IMSInclude" ColumnName="IMSInclude" />
+                <ScalarProperty Name="NonPublicDistrict" ColumnName="NonPublicDistrict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="CodelibraryModel.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolShortName" ColumnName="SchoolShortName" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="DepartmentKey" ColumnName="DepartmentKey" />
+                <ScalarProperty Name="DistrictKey" ColumnName="DistrictKey" />
+                <ScalarProperty Name="LocationKey" ColumnName="LocationKey" />
+                <ScalarProperty Name="Title1" ColumnName="Title1" />
+                <ScalarProperty Name="FRLunchPct" ColumnName="FRLunchPct" />
+                <ScalarProperty Name="SuplServices" ColumnName="SuplServices" />
+                <ScalarProperty Name="ChoiceEntry" ColumnName="ChoiceEntry" />
+                <ScalarProperty Name="ChoiceWithdraw" ColumnName="ChoiceWithdraw" />
+                <ScalarProperty Name="MultiDistrict" ColumnName="MultiDistrict" />
+                <ScalarProperty Name="NewAcctSch" ColumnName="NewAcctSch" />
+                <ScalarProperty Name="Accountability" ColumnName="Accountability" />
+                <ScalarProperty Name="EdenInclude" ColumnName="EdenInclude" />
+                <ScalarProperty Name="Charter" ColumnName="Charter" />
+                <ScalarProperty Name="Magnet" ColumnName="Magnet" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Religious" ColumnName="Religious" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="UrbanArea" ColumnName="UrbanArea" />
+                <ScalarProperty Name="Act" ColumnName="Act" />
+                <ScalarProperty Name="EduLevel" ColumnName="EduLevel" />
+                <ScalarProperty Name="ProfileLevel" ColumnName="ProfileLevel" />
+                <ScalarProperty Name="HomeSchool" ColumnName="HomeSchool" />
+                <ScalarProperty Name="Street1" ColumnName="Street1" />
+                <ScalarProperty Name="Street2" ColumnName="Street2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PhExtn" ColumnName="PhExtn" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="NcesAgencyID" ColumnName="NcesAgencyID" />
+                <ScalarProperty Name="NcesPriorLEAID" ColumnName="NcesPriorLEAID" />
+                <ScalarProperty Name="NcesSchID" ColumnName="NcesSchID" />
+                <ScalarProperty Name="NcesPhone" ColumnName="NcesPhone" />
+                <ScalarProperty Name="NcesSchType" ColumnName="NcesSchType" />
+                <ScalarProperty Name="NcesGradeSpan" ColumnName="NcesGradeSpan" />
+                <ScalarProperty Name="NcesLocCode" ColumnName="NcesLocCode" />
+                <ScalarProperty Name="NcesOpStatus" ColumnName="NcesOpStatus" />
+                <ScalarProperty Name="SeqNum" ColumnName="SeqNum" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DirectoryInclusion" ColumnName="DirectoryInclusion" />
+                <ScalarProperty Name="GradeSpan" ColumnName="GradeSpan" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="RouterIP" ColumnName="RouterIP" />
+                <ScalarProperty Name="EdDirName" ColumnName="EdDirName" />
+                <ScalarProperty Name="EmailHS" ColumnName="EmailHS" />
+                <ScalarProperty Name="EmailMS" ColumnName="EmailMS" />
+                <ScalarProperty Name="EmailES" ColumnName="EmailES" />
+                <ScalarProperty Name="SLC" ColumnName="SLC" />
+                <ScalarProperty Name="ScienceKitsBilling" ColumnName="ScienceKitsBilling" />
+                <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+                <ScalarProperty Name="ChangeUser" ColumnName="ChangeUser" />
+                <ScalarProperty Name="ChangeAction" ColumnName="ChangeAction" />
+                <ScalarProperty Name="ProfileSchool" ColumnName="ProfileSchool" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="NCESCharter" ColumnName="NCESCharter" />
+                <ScalarProperty Name="IMSInclude" ColumnName="IMSInclude" />
+                <ScalarProperty Name="EschoolBuilding" ColumnName="EschoolBuilding" />
+                <ScalarProperty Name="NonPublicDistrict" ColumnName="NonPublicDistrict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

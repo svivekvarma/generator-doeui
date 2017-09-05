@@ -1,0 +1,47 @@
+.clftopwrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+h4 {
+  margin: 0 auto;
+  text-align: center;
+}
+.browser-incompatible {
+  width: 100%;
+  padding: 25px;
+}
+.browser-incompatible .informational {
+  margin: 25px;
+  padding: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+.browser-incompatible .browserimages .browsercontainer {
+  width: 24%;
+  height: 450px;
+  overflow: hidden;
+  display: inline-block;
+}
+.browser-incompatible .browserimages .browsercontainer .imagecontainer {
+  width: 95%;
+}
+.browser-incompatible .browserimages .browsercontainer .imagecontainer img {
+  width: 100%;
+}
+.browser-incompatible .browserimages .browsercontainer .title {
+  font-weight: bold;
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
+}
+.browser-incompatible .browserimages .browsercontainer .versions {
+  font-size: 12px;
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
+}
+.browser-incompatible .browserimages .browsercontainer .download {
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
+}

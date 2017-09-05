@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Demo</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no">
+	<!--<link href="css/index.min.css" rel="stylesheet" />
+    <link href="js/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />-->
+
+	<link href="bower_components/normalize-css/normalize.css" rel="stylesheet" />
+	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet"
+	/>
+	<link href="css/menu.css" rel="stylesheet" />
+	<link href="css/clf.css" rel="stylesheet" />
+	<link href="css/framework.css" rel="stylesheet" />
+	<link href="css/doeclfresponsive.css" rel="stylesheet" />
+	<link href="js/vendor/vwidgets/hamburgermenu.css" rel="stylesheet" />
+	<link href="js/vendor/collapsible/collapsible.css" rel="stylesheet" />
+	<link href="js/vendor/vwidgets/pageloader.css" rel="stylesheet" />
+	<link href="bower_components/vOverlay/voverlay.css" rel="stylesheet" />
+	<link href="bower_components/vwidget-grid/src/vwidgets-grid.css" rel="stylesheet" />
+	<link href="bower_components/vwidget-grid/src/vwidgets-grid-responsive.css" rel="stylesheet" />
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link href="css/site.css" rel="stylesheet" />
+	<link href="css/wizard.css" rel="stylesheet" />
+
+	<!-- build:remove:dist -->
+	<script src="//localhost:35729/livereload.js"></script>
+	<!-- /build -->
+	
+	<script type="text/javascript">
+		var require = {
+			urlArgs: "v=" + ((false)
+				? (new Date()).getTime()
+				: 3240)
+		};
+	</script>
+	<script data-main="app" src="require.js"></script>
+	<!-- build:template
+		<% if (environment !== 'dev') { %>
+			<script data-main="app.min" src="require.js"></script>
+		<% } %>
+	/build -->
+
+</head>
+
+<body>
+	<div class="hamburgerplaceholder">
+
+	</div>
+	<div class="clftopwrapper">
+		<header>
+			<div id="stateheader">
+				<div class="imagecontainer">
+					<img class="desktopstateheader" src="images/clfimages/CLF_hdr_StateOfDelaware_big2.png" />
+				</div>
+			</div>
+			<div id="hamburgerwrapper">
+			</div>
+			<a href="#" title="Delaware Department of Education" class="doelogolink">
+				<img src="images/clfimages/DDoE.png" />
+			</a>
+			<section id="headermiscitems">
+				<section id="userinfo">
+					<span class="welomemessage">Welcome </span>
+					<span class="username"><a href="#" id="usernametext"></a></span>
+				</section>
+				<h4>Demo</h4>
+				<section id="iconcontainer">
+					<a class="global-icon imsicon" onclick="location.href='https://login.doe.k12.de.us/'" id="imsicon">
+						<img class="imageicon" src="images/clfimages/ims.png" alt="IMS" />
+						<span class="text">IMS</span>
+					</a>
+				</section>
+			</section>
+			<div id="appheader">
+				Demo
+			</div>
+
+			<div id="appmenu">
+
+			</div>
+
+		</header>
+		<div id="content" class="routeroutlet">
+
+		</div>
+
+		<footer id="doefooter">
+			<section id="wrapperforfooter">
+				<section id="doeinformation">
+					<h6>Delaware Department of Education</h6>
+					<span>401 Federal Street, Suite 2</span>
+					<span>Dover, DE 19901-3639</span>
+					<span>1-302-735-4000</span>
+				</section>
+
+				<section id="misclinks">
+					<a id="nondiscrimination" href="http://www.doe.k12.de.us/nondiscrimination" target="_blank">Nondiscrimination Statement</a>
+					<!--<a id="feedback" href="mailto:Alison.May@doe.k12.de.us">Questions &amp; Feedback</a>
+					<a id="terms" href="http://www.schoolwires.com/terms">Terms of Use</a>
+					<a id="policy" href="http://www.schoolwires.com/privacy">Schoolwires Privacy Policy</a>-->
+				</section>
+			</section>
+			<div class="clearfix">
+
+			</div>
+			<div id="statefooter">
+				<section id="links">
+					<a id="nondiscrimination" href="http://www.doe.k12.de.us/nondiscrimination" target="_blank">Nondiscrimination Statement</a>
+					<!--|
+					<a id="feedback" href="mailto:Alison.May@doe.k12.de.us">Questions &amp; Feedback</a>|
+					<a id="terms" href="http://www.schoolwires.com/terms">Terms of Use</a>|
+					<a id="policy" href="http://www.schoolwires.com/privacy">Schoolwires Privacy Policy</a>-->
+				</section>
+			</div>
+			<div class="clearfix">
+
+			</div>
+		</footer>
+	</div>
+
+
+</body>
+
+</html>

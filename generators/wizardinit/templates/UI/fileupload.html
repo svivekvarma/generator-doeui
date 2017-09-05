@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>FileUpload</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        // $(document).ready(function () {
+        //     $("#button1").click(function (evt) {
+        //         var files = $("#data").get(0).files;
+        //         if (files.length > 0) {
+        //             var data = new FormData();
+        //             for (i = 0; i < files.length; i++) {
+        //                 data.append("file" + i, files[i]);
+        //             }
+        //             $.ajax({
+        //                 type: "POST",
+        //                 url: "./AARAPI/api/TOYNominee/uploadPicture",
+        //                 contentType: false,
+        //                 processData: false,
+        //                 data: data,
+        //                 success: function (messages) {
+        //                     for (i = 0; i < messages.length; i++) {
+        //                         alert(messages[i]);
+        //                     }
+        //                 },
+        //                 error: function () {
+        //                     alert("Error while invoking the Web API");
+        //                 }
+        //             });
+        //         }
+        //     });
+        // });
+
+        $(document).ready(function () {
+            $("#button1").click(function (evt) {
+
+                var form = $('form');
+                var formdata = false;
+                
+                if (window.FormData) {
+                    formdata = new FormData(form[0]);
+                }
+                
+                $.ajax({
+                    type: "POST",
+                    url: "./AARAPI/api/TOYNominee/ToyUploads",
+                    contentType: false,
+                    headers: { 'filename': 'Picture', 'districtcode': 12304},
+                    processData: false,
+                    data:formdata ? formdata : form.serialize(),
+                    success: function (messages) {
+                        for (i = 0; i < messages.length; i++) {
+                            alert(messages[i]);
+                        }
+                    },
+                    error: function () {
+                        alert("Error while invoking the Web API");
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="./AARAPI/api/TOYNominee/uploadPicture" enctype="multipart/form-data" method="POST" target="_self">
+        <input id="data" name="data" size="40" type="file">
+        <br>
+        <input id="button1" type="button">
+    </form>
+</body>
+
+</html>

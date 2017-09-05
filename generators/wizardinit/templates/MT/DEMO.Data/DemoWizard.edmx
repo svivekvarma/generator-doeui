@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DemoWizardTemplateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Demo">
+          <Key>
+            <PropertyRef Name="DemoID" />
+          </Key>
+          <Property Name="DemoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolYear" Type="int" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="255" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="255" />
+          <Property Name="FirstName" Type="varchar" MaxLength="255" />
+          <Property Name="LastName" Type="varchar" MaxLength="255" />
+          <Property Name="DistrictCode" Type="int" />
+          <Property Name="SchoolCode" Type="int" />
+          <Property Name="CurrentApplicationStepID" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DemoQuestion">
+          <Key>
+            <PropertyRef Name="DemoQuestionID" />
+          </Key>
+          <Property Name="DemoQuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DemoID" Type="int" Nullable="false" />
+          <Property Name="WizardQuestionID" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="varchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DemoWizardDefinition">
+          <Key>
+            <PropertyRef Name="DemoWizardID" />
+          </Key>
+          <Property Name="DemoWizardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DemoID" Type="int" Nullable="false" />
+          <Property Name="WizardDefinitionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WizardDefinition">
+          <Key>
+            <PropertyRef Name="WizardDefinitionID" />
+          </Key>
+          <Property Name="WizardDefinitionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WizardName" Type="varchar" MaxLength="50" />
+          <Property Name="WizardDescription" Type="varchar(max)" />
+          <Property Name="WizardCode" Type="char" MaxLength="2" />
+          <Property Name="ServiceController" Type="varchar" MaxLength="50" />
+          <Property Name="AddNewMethod" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="WizardDefinitionStep">
+          <Key>
+            <PropertyRef Name="WizardDefinitionStepID" />
+          </Key>
+          <Property Name="WizardDefinitionStepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WizardDefinitionID" Type="int" Nullable="false" />
+          <Property Name="Ordinal" Type="int" Nullable="false" />
+          <Property Name="Section" Type="varchar" MaxLength="50" />
+          <Property Name="Widget" Type="varchar" MaxLength="50" />
+          <Property Name="ReadMethod" Type="varchar" MaxLength="50" />
+          <Property Name="WriteMethod" Type="varchar" MaxLength="50" />
+          <Property Name="StepName" Type="varchar" MaxLength="25" />
+          <Property Name="StepDescription" Type="varchar(max)" />
+          <Property Name="WizardStepCode" Type="char" MaxLength="10" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="WizardQuestion">
+          <Key>
+            <PropertyRef Name="WizardQuestionID" />
+          </Key>
+          <Property Name="WizardQuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WizardDefinitionStepID" Type="int" />
+          <Property Name="Ordinal" Type="int" />
+          <Property Name="WizardQuestion" Type="varchar(max)" />
+          <Property Name="WizardValidationLength" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_DemoQuestion_Demo">
+          <End Role="Demo" Type="Self.Demo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DemoQuestion" Type="Self.DemoQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demo">
+              <PropertyRef Name="DemoID" />
+            </Principal>
+            <Dependent Role="DemoQuestion">
+              <PropertyRef Name="DemoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoQuestion_WizardQuestion">
+          <End Role="WizardQuestion" Type="Self.WizardQuestion" Multiplicity="1" />
+          <End Role="DemoQuestion" Type="Self.DemoQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardQuestion">
+              <PropertyRef Name="WizardQuestionID" />
+            </Principal>
+            <Dependent Role="DemoQuestion">
+              <PropertyRef Name="WizardQuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoWizard_WizardDefinition">
+          <End Role="Demo" Type="Self.Demo" Multiplicity="1" />
+          <End Role="DemoWizardDefinition" Type="Self.DemoWizardDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demo">
+              <PropertyRef Name="DemoID" />
+            </Principal>
+            <Dependent Role="DemoWizardDefinition">
+              <PropertyRef Name="DemoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoWizardDefintion_WizardDefinition">
+          <End Role="WizardDefinition" Type="Self.WizardDefinition" Multiplicity="1" />
+          <End Role="DemoWizardDefinition" Type="Self.DemoWizardDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardDefinition">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Principal>
+            <Dependent Role="DemoWizardDefinition">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WizardDefintionStep_WizardDefinition">
+          <End Role="WizardDefinition" Type="Self.WizardDefinition" Multiplicity="1" />
+          <End Role="WizardDefinitionStep" Type="Self.WizardDefinitionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardDefinition">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Principal>
+            <Dependent Role="WizardDefinitionStep">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WizardQuestion_WizardDefinitionStep">
+          <End Role="WizardDefinitionStep" Type="Self.WizardDefinitionStep" Multiplicity="0..1" />
+          <End Role="WizardQuestion" Type="Self.WizardQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardDefinitionStep">
+              <PropertyRef Name="WizardDefinitionStepID" />
+            </Principal>
+            <Dependent Role="WizardQuestion">
+              <PropertyRef Name="WizardDefinitionStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DemoWizardTemplateModelStoreContainer">
+          <EntitySet Name="Demo" EntityType="Self.Demo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DemoQuestion" EntityType="Self.DemoQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DemoWizardDefinition" EntityType="Self.DemoWizardDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WizardDefinition" EntityType="Self.WizardDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WizardDefinitionStep" EntityType="Self.WizardDefinitionStep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WizardQuestion" EntityType="Self.WizardQuestion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DemoQuestion_Demo" Association="Self.FK_DemoQuestion_Demo">
+            <End Role="Demo" EntitySet="Demo" />
+            <End Role="DemoQuestion" EntitySet="DemoQuestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoQuestion_WizardQuestion" Association="Self.FK_DemoQuestion_WizardQuestion">
+            <End Role="WizardQuestion" EntitySet="WizardQuestion" />
+            <End Role="DemoQuestion" EntitySet="DemoQuestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoWizard_WizardDefinition" Association="Self.FK_DemoWizard_WizardDefinition">
+            <End Role="Demo" EntitySet="Demo" />
+            <End Role="DemoWizardDefinition" EntitySet="DemoWizardDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoWizardDefintion_WizardDefinition" Association="Self.FK_DemoWizardDefintion_WizardDefinition">
+            <End Role="WizardDefinition" EntitySet="WizardDefinition" />
+            <End Role="DemoWizardDefinition" EntitySet="DemoWizardDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WizardDefintionStep_WizardDefinition" Association="Self.FK_WizardDefintionStep_WizardDefinition">
+            <End Role="WizardDefinition" EntitySet="WizardDefinition" />
+            <End Role="WizardDefinitionStep" EntitySet="WizardDefinitionStep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WizardQuestion_WizardDefinitionStep" Association="Self.FK_WizardQuestion_WizardDefinitionStep">
+            <End Role="WizardDefinitionStep" EntitySet="WizardDefinitionStep" />
+            <End Role="WizardQuestion" EntitySet="WizardQuestion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DemoWizardTemplateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DemoWizardTemplateEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Demoes" EntityType="DemoWizardTemplateModel.Demo" />
+          <EntitySet Name="DemoQuestions" EntityType="DemoWizardTemplateModel.DemoQuestion" />
+          <EntitySet Name="DemoWizardDefinitions" EntityType="DemoWizardTemplateModel.DemoWizardDefinition" />
+          <EntitySet Name="WizardDefinitions" EntityType="DemoWizardTemplateModel.WizardDefinition" />
+          <EntitySet Name="WizardDefinitionSteps" EntityType="DemoWizardTemplateModel.WizardDefinitionStep" />
+          <EntitySet Name="WizardQuestions" EntityType="DemoWizardTemplateModel.WizardQuestion" />
+          <AssociationSet Name="FK_DemoQuestion_Demo" Association="DemoWizardTemplateModel.FK_DemoQuestion_Demo">
+            <End Role="Demo" EntitySet="Demoes" />
+            <End Role="DemoQuestion" EntitySet="DemoQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoWizard_WizardDefinition" Association="DemoWizardTemplateModel.FK_DemoWizard_WizardDefinition">
+            <End Role="Demo" EntitySet="Demoes" />
+            <End Role="DemoWizardDefinition" EntitySet="DemoWizardDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoQuestion_WizardQuestion" Association="DemoWizardTemplateModel.FK_DemoQuestion_WizardQuestion">
+            <End Role="WizardQuestion" EntitySet="WizardQuestions" />
+            <End Role="DemoQuestion" EntitySet="DemoQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoWizardDefintion_WizardDefinition" Association="DemoWizardTemplateModel.FK_DemoWizardDefintion_WizardDefinition">
+            <End Role="WizardDefinition" EntitySet="WizardDefinitions" />
+            <End Role="DemoWizardDefinition" EntitySet="DemoWizardDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WizardDefintionStep_WizardDefinition" Association="DemoWizardTemplateModel.FK_WizardDefintionStep_WizardDefinition">
+            <End Role="WizardDefinition" EntitySet="WizardDefinitions" />
+            <End Role="WizardDefinitionStep" EntitySet="WizardDefinitionSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WizardQuestion_WizardDefinitionStep" Association="DemoWizardTemplateModel.FK_WizardQuestion_WizardDefinitionStep">
+            <End Role="WizardDefinitionStep" EntitySet="WizardDefinitionSteps" />
+            <End Role="WizardQuestion" EntitySet="WizardQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Demo">
+          <Key>
+            <PropertyRef Name="DemoID" />
+          </Key>
+          <Property Name="DemoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolYear" Type="Int32" />
+          <Property Name="DistrictName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictCode" Type="Int32" />
+          <Property Name="SchoolCode" Type="Int32" />
+          <Property Name="CurrentApplicationStepID" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DemoQuestions" Relationship="DemoWizardTemplateModel.FK_DemoQuestion_Demo" FromRole="Demo" ToRole="DemoQuestion" />
+          <NavigationProperty Name="DemoWizardDefinitions" Relationship="DemoWizardTemplateModel.FK_DemoWizard_WizardDefinition" FromRole="Demo" ToRole="DemoWizardDefinition" />
+        </EntityType>
+        <EntityType Name="DemoQuestion">
+          <Key>
+            <PropertyRef Name="DemoQuestionID" />
+          </Key>
+          <Property Name="DemoQuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DemoID" Type="Int32" Nullable="false" />
+          <Property Name="WizardQuestionID" Type="Int32" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Demo" Relationship="DemoWizardTemplateModel.FK_DemoQuestion_Demo" FromRole="DemoQuestion" ToRole="Demo" />
+          <NavigationProperty Name="WizardQuestion" Relationship="DemoWizardTemplateModel.FK_DemoQuestion_WizardQuestion" FromRole="DemoQuestion" ToRole="WizardQuestion" />
+        </EntityType>
+        <EntityType Name="DemoWizardDefinition">
+          <Key>
+            <PropertyRef Name="DemoWizardID" />
+          </Key>
+          <Property Name="DemoWizardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DemoID" Type="Int32" Nullable="false" />
+          <Property Name="WizardDefinitionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Demo" Relationship="DemoWizardTemplateModel.FK_DemoWizard_WizardDefinition" FromRole="DemoWizardDefinition" ToRole="Demo" />
+          <NavigationProperty Name="WizardDefinition" Relationship="DemoWizardTemplateModel.FK_DemoWizardDefintion_WizardDefinition" FromRole="DemoWizardDefinition" ToRole="WizardDefinition" />
+        </EntityType>
+        <EntityType Name="WizardDefinition">
+          <Key>
+            <PropertyRef Name="WizardDefinitionID" />
+          </Key>
+          <Property Name="WizardDefinitionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WizardName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WizardDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WizardCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ServiceController" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddNewMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DemoWizardDefinitions" Relationship="DemoWizardTemplateModel.FK_DemoWizardDefintion_WizardDefinition" FromRole="WizardDefinition" ToRole="DemoWizardDefinition" />
+          <NavigationProperty Name="WizardDefinitionSteps" Relationship="DemoWizardTemplateModel.FK_WizardDefintionStep_WizardDefinition" FromRole="WizardDefinition" ToRole="WizardDefinitionStep" />
+        </EntityType>
+        <EntityType Name="WizardDefinitionStep">
+          <Key>
+            <PropertyRef Name="WizardDefinitionStepID" />
+          </Key>
+          <Property Name="WizardDefinitionStepID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WizardDefinitionID" Type="Int32" Nullable="false" />
+          <Property Name="Ordinal" Type="Int32" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Widget" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReadMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WriteMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StepName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="StepDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WizardStepCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WizardDefinition" Relationship="DemoWizardTemplateModel.FK_WizardDefintionStep_WizardDefinition" FromRole="WizardDefinitionStep" ToRole="WizardDefinition" />
+          <NavigationProperty Name="WizardQuestions" Relationship="DemoWizardTemplateModel.FK_WizardQuestion_WizardDefinitionStep" FromRole="WizardDefinitionStep" ToRole="WizardQuestion" />
+        </EntityType>
+        <EntityType Name="WizardQuestion">
+          <Key>
+            <PropertyRef Name="WizardQuestionID" />
+          </Key>
+          <Property Name="WizardQuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WizardDefinitionStepID" Type="Int32" />
+          <Property Name="Ordinal" Type="Int32" />
+          <Property Name="WizardQuestion1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WizardValidationLength" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DemoQuestions" Relationship="DemoWizardTemplateModel.FK_DemoQuestion_WizardQuestion" FromRole="WizardQuestion" ToRole="DemoQuestion" />
+          <NavigationProperty Name="WizardDefinitionStep" Relationship="DemoWizardTemplateModel.FK_WizardQuestion_WizardDefinitionStep" FromRole="WizardQuestion" ToRole="WizardDefinitionStep" />
+        </EntityType>
+        <Association Name="FK_DemoQuestion_Demo">
+          <End Type="DemoWizardTemplateModel.Demo" Role="Demo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DemoWizardTemplateModel.DemoQuestion" Role="DemoQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demo">
+              <PropertyRef Name="DemoID" />
+            </Principal>
+            <Dependent Role="DemoQuestion">
+              <PropertyRef Name="DemoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoWizard_WizardDefinition">
+          <End Type="DemoWizardTemplateModel.Demo" Role="Demo" Multiplicity="1" />
+          <End Type="DemoWizardTemplateModel.DemoWizardDefinition" Role="DemoWizardDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demo">
+              <PropertyRef Name="DemoID" />
+            </Principal>
+            <Dependent Role="DemoWizardDefinition">
+              <PropertyRef Name="DemoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoQuestion_WizardQuestion">
+          <End Type="DemoWizardTemplateModel.WizardQuestion" Role="WizardQuestion" Multiplicity="1" />
+          <End Type="DemoWizardTemplateModel.DemoQuestion" Role="DemoQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardQuestion">
+              <PropertyRef Name="WizardQuestionID" />
+            </Principal>
+            <Dependent Role="DemoQuestion">
+              <PropertyRef Name="WizardQuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoWizardDefintion_WizardDefinition">
+          <End Type="DemoWizardTemplateModel.WizardDefinition" Role="WizardDefinition" Multiplicity="1" />
+          <End Type="DemoWizardTemplateModel.DemoWizardDefinition" Role="DemoWizardDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardDefinition">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Principal>
+            <Dependent Role="DemoWizardDefinition">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WizardDefintionStep_WizardDefinition">
+          <End Type="DemoWizardTemplateModel.WizardDefinition" Role="WizardDefinition" Multiplicity="1" />
+          <End Type="DemoWizardTemplateModel.WizardDefinitionStep" Role="WizardDefinitionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardDefinition">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Principal>
+            <Dependent Role="WizardDefinitionStep">
+              <PropertyRef Name="WizardDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WizardQuestion_WizardDefinitionStep">
+          <End Type="DemoWizardTemplateModel.WizardDefinitionStep" Role="WizardDefinitionStep" Multiplicity="0..1" />
+          <End Type="DemoWizardTemplateModel.WizardQuestion" Role="WizardQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WizardDefinitionStep">
+              <PropertyRef Name="WizardDefinitionStepID" />
+            </Principal>
+            <Dependent Role="WizardQuestion">
+              <PropertyRef Name="WizardDefinitionStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DemoWizardTemplateModelStoreContainer" CdmEntityContainer="DemoWizardTemplateEntities">
+          <EntitySetMapping Name="Demoes">
+            <EntityTypeMapping TypeName="DemoWizardTemplateModel.Demo">
+              <MappingFragment StoreEntitySet="Demo">
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CurrentApplicationStepID" ColumnName="CurrentApplicationStepID" />
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="SchoolYear" ColumnName="SchoolYear" />
+                <ScalarProperty Name="DemoID" ColumnName="DemoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DemoQuestions">
+            <EntityTypeMapping TypeName="DemoWizardTemplateModel.DemoQuestion">
+              <MappingFragment StoreEntitySet="DemoQuestion">
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="WizardQuestionID" ColumnName="WizardQuestionID" />
+                <ScalarProperty Name="DemoID" ColumnName="DemoID" />
+                <ScalarProperty Name="DemoQuestionID" ColumnName="DemoQuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DemoWizardDefinitions">
+            <EntityTypeMapping TypeName="DemoWizardTemplateModel.DemoWizardDefinition">
+              <MappingFragment StoreEntitySet="DemoWizardDefinition">
+                <ScalarProperty Name="WizardDefinitionID" ColumnName="WizardDefinitionID" />
+                <ScalarProperty Name="DemoID" ColumnName="DemoID" />
+                <ScalarProperty Name="DemoWizardID" ColumnName="DemoWizardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WizardDefinitions">
+            <EntityTypeMapping TypeName="DemoWizardTemplateModel.WizardDefinition">
+              <MappingFragment StoreEntitySet="WizardDefinition">
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="AddNewMethod" ColumnName="AddNewMethod" />
+                <ScalarProperty Name="ServiceController" ColumnName="ServiceController" />
+                <ScalarProperty Name="WizardCode" ColumnName="WizardCode" />
+                <ScalarProperty Name="WizardDescription" ColumnName="WizardDescription" />
+                <ScalarProperty Name="WizardName" ColumnName="WizardName" />
+                <ScalarProperty Name="WizardDefinitionID" ColumnName="WizardDefinitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WizardDefinitionSteps">
+            <EntityTypeMapping TypeName="DemoWizardTemplateModel.WizardDefinitionStep">
+              <MappingFragment StoreEntitySet="WizardDefinitionStep">
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="WizardStepCode" ColumnName="WizardStepCode" />
+                <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+                <ScalarProperty Name="StepName" ColumnName="StepName" />
+                <ScalarProperty Name="WriteMethod" ColumnName="WriteMethod" />
+                <ScalarProperty Name="ReadMethod" ColumnName="ReadMethod" />
+                <ScalarProperty Name="Widget" ColumnName="Widget" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Ordinal" ColumnName="Ordinal" />
+                <ScalarProperty Name="WizardDefinitionID" ColumnName="WizardDefinitionID" />
+                <ScalarProperty Name="WizardDefinitionStepID" ColumnName="WizardDefinitionStepID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WizardQuestions">
+            <EntityTypeMapping TypeName="DemoWizardTemplateModel.WizardQuestion">
+              <MappingFragment StoreEntitySet="WizardQuestion">
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="WizardValidationLength" ColumnName="WizardValidationLength" />
+                <ScalarProperty Name="WizardQuestion1" ColumnName="WizardQuestion" />
+                <ScalarProperty Name="Ordinal" ColumnName="Ordinal" />
+                <ScalarProperty Name="WizardDefinitionStepID" ColumnName="WizardDefinitionStepID" />
+                <ScalarProperty Name="WizardQuestionID" ColumnName="WizardQuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

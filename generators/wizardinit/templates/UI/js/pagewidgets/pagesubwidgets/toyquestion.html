@@ -1,0 +1,17 @@
+<form class="form-horizontal">
+    <input type="hidden" class="form-control" name="TOYNominationID">
+    <input type="hidden" class="form-control" name="WizardQuestionID">
+    <input type="hidden" class="form-control" name="Ordinal">
+    <input type="hidden" class="form-control" name="Length" id="Length">
+
+    <div class="form-group">
+        <div><label for="Answer" class="">{{Question}}</label></div>
+        <div  style="height:30px"></div>
+        <div>
+            <textarea class="form-control wordCount" data-max-words="{{Length}}" name="Answer" id="Answer" TextWrapping="Wrap" rows="6" MultiLine="True"
+                placeholder="required"></textarea>
+            <div style="vertical-align:right;">Total word count : <span class="display_count">0</span> words. Words left : <span class="word_left">200.</span></div>
+        </div>
+        <div class="form-group floatrightmargin buttoncontainer">
+        </div>
+</form>

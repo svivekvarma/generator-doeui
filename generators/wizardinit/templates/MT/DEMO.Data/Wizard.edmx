@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WizardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Definition">
+          <Key>
+            <PropertyRef Name="DefinitionID" />
+          </Key>
+          <Property Name="DefinitionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WizardName" Type="varchar" MaxLength="50" />
+          <Property Name="WizardDescription" Type="varchar(max)" />
+          <Property Name="WizardCode" Type="char" MaxLength="4" />
+          <Property Name="ServiceController" Type="varchar" MaxLength="50" />
+          <Property Name="AddNewMethod" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DefinitionStep">
+          <Key>
+            <PropertyRef Name="DefinitionStepID" />
+          </Key>
+          <Property Name="DefinitionStepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DefinitionID" Type="int" Nullable="false" />
+          <Property Name="Ordinal" Type="int" Nullable="false" />
+          <Property Name="Section" Type="varchar" MaxLength="50" />
+          <Property Name="Widget" Type="varchar" MaxLength="50" />
+          <Property Name="ReadMethod" Type="varchar" MaxLength="50" />
+          <Property Name="WriteMethod" Type="varchar" MaxLength="50" />
+          <Property Name="StepName" Type="varchar" MaxLength="25" />
+          <Property Name="StepDescription" Type="varchar(max)" />
+          <Property Name="WizardStepCode" Type="char" MaxLength="10" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DefinitionStepID" Type="int" />
+          <Property Name="Ordinal" Type="int" />
+          <Property Name="Question" Type="varchar(max)" />
+          <Property Name="WizardValidationLength" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Question_DefinitionStep">
+          <End Role="DefinitionStep" Type="Self.DefinitionStep" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DefinitionStep">
+              <PropertyRef Name="DefinitionStepID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="DefinitionStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WizardDefintionStep_Definition">
+          <End Role="Definition" Type="Self.Definition" Multiplicity="1" />
+          <End Role="DefinitionStep" Type="Self.DefinitionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Definition">
+              <PropertyRef Name="DefinitionID" />
+            </Principal>
+            <Dependent Role="DefinitionStep">
+              <PropertyRef Name="DefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WizardModelStoreContainer">
+          <EntitySet Name="Definition" EntityType="Self.Definition" Schema="wizard" store:Type="Tables" />
+          <EntitySet Name="DefinitionStep" EntityType="Self.DefinitionStep" Schema="wizard" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="wizard" store:Type="Tables" />
+          <AssociationSet Name="FK_Question_DefinitionStep" Association="Self.FK_Question_DefinitionStep">
+            <End Role="DefinitionStep" EntitySet="DefinitionStep" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WizardDefintionStep_Definition" Association="Self.FK_WizardDefintionStep_Definition">
+            <End Role="Definition" EntitySet="Definition" />
+            <End Role="DefinitionStep" EntitySet="DefinitionStep" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WizardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Definition">
+          <Key>
+            <PropertyRef Name="DefinitionID" />
+          </Key>
+          <Property Name="DefinitionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WizardName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WizardDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WizardCode" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="ServiceController" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddNewMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DefinitionSteps" Relationship="Self.FK_WizardDefintionStep_Definition" FromRole="Definition" ToRole="DefinitionStep" />
+        </EntityType>
+        <EntityType Name="DefinitionStep">
+          <Key>
+            <PropertyRef Name="DefinitionStepID" />
+          </Key>
+          <Property Name="DefinitionStepID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DefinitionID" Type="Int32" Nullable="false" />
+          <Property Name="Ordinal" Type="Int32" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Widget" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReadMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WriteMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StepName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="StepDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WizardStepCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Definition" Relationship="Self.FK_WizardDefintionStep_Definition" FromRole="DefinitionStep" ToRole="Definition" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_Question_DefinitionStep" FromRole="DefinitionStep" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DefinitionStepID" Type="Int32" />
+          <Property Name="Ordinal" Type="Int32" />
+          <Property Name="Question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WizardValidationLength" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DefinitionStep" Relationship="Self.FK_Question_DefinitionStep" FromRole="Question" ToRole="DefinitionStep" />
+        </EntityType>
+        <Association Name="FK_WizardDefintionStep_Definition">
+          <End Role="Definition" Type="Self.Definition" Multiplicity="1" />
+          <End Role="DefinitionStep" Type="Self.DefinitionStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Definition">
+              <PropertyRef Name="DefinitionID" />
+            </Principal>
+            <Dependent Role="DefinitionStep">
+              <PropertyRef Name="DefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_DefinitionStep">
+          <End Role="DefinitionStep" Type="Self.DefinitionStep" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DefinitionStep">
+              <PropertyRef Name="DefinitionStepID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="DefinitionStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WizardEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Definitions" EntityType="Self.Definition" />
+          <EntitySet Name="DefinitionSteps" EntityType="Self.DefinitionStep" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <AssociationSet Name="FK_WizardDefintionStep_Definition" Association="Self.FK_WizardDefintionStep_Definition">
+            <End Role="Definition" EntitySet="Definitions" />
+            <End Role="DefinitionStep" EntitySet="DefinitionSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_DefinitionStep" Association="Self.FK_Question_DefinitionStep">
+            <End Role="DefinitionStep" EntitySet="DefinitionSteps" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WizardModelStoreContainer" CdmEntityContainer="WizardEntities">
+          <EntitySetMapping Name="Definitions">
+            <EntityTypeMapping TypeName="WizardModel.Definition">
+              <MappingFragment StoreEntitySet="Definition">
+                <ScalarProperty Name="DefinitionID" ColumnName="DefinitionID" />
+                <ScalarProperty Name="WizardName" ColumnName="WizardName" />
+                <ScalarProperty Name="WizardDescription" ColumnName="WizardDescription" />
+                <ScalarProperty Name="WizardCode" ColumnName="WizardCode" />
+                <ScalarProperty Name="ServiceController" ColumnName="ServiceController" />
+                <ScalarProperty Name="AddNewMethod" ColumnName="AddNewMethod" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DefinitionSteps">
+            <EntityTypeMapping TypeName="WizardModel.DefinitionStep">
+              <MappingFragment StoreEntitySet="DefinitionStep">
+                <ScalarProperty Name="DefinitionStepID" ColumnName="DefinitionStepID" />
+                <ScalarProperty Name="DefinitionID" ColumnName="DefinitionID" />
+                <ScalarProperty Name="Ordinal" ColumnName="Ordinal" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Widget" ColumnName="Widget" />
+                <ScalarProperty Name="ReadMethod" ColumnName="ReadMethod" />
+                <ScalarProperty Name="WriteMethod" ColumnName="WriteMethod" />
+                <ScalarProperty Name="StepName" ColumnName="StepName" />
+                <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+                <ScalarProperty Name="WizardStepCode" ColumnName="WizardStepCode" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="WizardModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="DefinitionStepID" ColumnName="DefinitionStepID" />
+                <ScalarProperty Name="Ordinal" ColumnName="Ordinal" />
+                <ScalarProperty Name="Question1" ColumnName="Question" />
+                <ScalarProperty Name="WizardValidationLength" ColumnName="WizardValidationLength" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

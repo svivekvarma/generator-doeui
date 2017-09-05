@@ -1,0 +1,67 @@
+UI/node_modules
+UI/bower_components
+MT/DEMO/packages
+MT/DEMO/DEMO.API/bin
+MT/DEMO/DEMO.API/App_Data/ErrorLog
+MT/DEMO/DEMO.Data/bin
+MT/DEMO/DEMO.Models/bin
+MT/DEMO/DEMO.Services/bin
+MT/DEMO/DEMO.Services.Test/bin
+MT/DEMO/DEMO.API/obj
+MT/DEMO/DEMO.Data/obj
+MT/DEMO/DEMO.Models/obj
+MT/DEMO/DEMO.Services/obj
+MT/DEMO/DEMO.Services.Test/obj
+MT/DEMO/DEMO.v12.suo
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+!NuGet.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in/
+bin
+[Dd]ebug*/
+*.lib
+*.sbr
+*.ncrunchproject
+*.ncrunchsolution
+obj/
+[Rr]elease*/
+_ReSharper*/
+_NCrunch*/
+[Tt]est[Rr]esult*
+packages/
+!/packages/repositories.config
+credentials-*.xml
+*DS_Store
+.vs/
+
+# mstest test results
+TestResults
+*.wp[p|s]
+.sass-cache/
+
+#Plugin architecture.
+[Pp]lugins/
+
+# Git Extensions
+*.orig
+
+# Error Logs
+Application\Middletier\DEMO\DEMO.API\App_Data\ErrorLog

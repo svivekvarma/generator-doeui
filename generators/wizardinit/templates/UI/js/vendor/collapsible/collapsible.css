@@ -1,0 +1,85 @@
+﻿.collapsibles {
+    margin: 10px auto;
+    padding: 0;
+    width: 98%;
+}
+
+    .collapsibles .panel {
+        margin: 1px 0px;
+        padding: 0px 7px;
+        cursor: pointer;
+        position: relative;
+        height: 33px;
+        line-height: 33px;
+        font-size: 11px;
+        font-weight: bold;
+        color: White;
+        border-radius: 5px;
+        background: #337ab7; /* Old browsers */
+    }
+
+        .collapsibles .panel .count {
+            display: inline;
+            float: right;
+            margin: 5px 20px;
+            background-color: White;
+            color: #337ab7;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 5px;
+            padding: 0px 5px;
+        }
+
+        .collapsibles .panel .paneltitle {
+            line-height: 33px;
+            font-size: 11px;
+            font-weight: bold;
+            color: White;
+        }
+
+    .collapsibles .panelcontent {
+        padding: 5px 10px;
+       
+    }
+
+    .collapsibles .panelcontent .listitem {
+       margin: 10px 2px;
+       padding: 0px 5px;
+    }
+
+    .collapsibles .panelcontent .listitem.active {
+            background-color: #79aec5;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 5px;
+            
+    }
+
+    .collapsibles .panelcontent .listitem.active .listtitle a{
+        color: white;
+        width: 131px;
+        text-overflow: ellipsis;
+    }
+
+    .collapsibles .panelcontent .listitem.active .listtitle i{
+        line-height: 35px;
+    }
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin: 2px 5px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.minusicon {
+    background: url('images/contenttabicons.png') 0px 0px;
+}
+
+.plusicon {
+    background: url('images/contenttabicons.png') 0px -25px;
+}

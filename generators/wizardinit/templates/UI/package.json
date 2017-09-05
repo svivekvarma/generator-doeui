@@ -1,0 +1,39 @@
+{
+  "name": "AAR",
+  "version": "3.0.0",
+  "description": "Delaware Department of Education - Awards Recognition",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "dev": "lite-server",
+    "app": "concurrent \"npm run dev\" ",
+    "preinstall": "npm install -g grunt && npm install -g grunt-cli && npm install -g bower",
+    "postinstall": "bower cache clean && bower install"
+  },
+  "keywords": [
+    "DEDOE",
+    "DOE",
+    "Delaware",
+    "Department",
+    "Of",
+    "Education"
+  ],
+  "author": "Vivek Varma Siruvuri",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-open": "^0.2.3",
+    "grunt-processhtml": "^0.4.1",
+    "matchdep": "^0.3.0",
+    "requirejs": "^2.1.18"
+  },
+  "dependencies": {
+    "dargs": "^4.0.0"
+  }
+}

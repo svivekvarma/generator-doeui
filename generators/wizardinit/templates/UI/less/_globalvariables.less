@@ -1,0 +1,24 @@
+
+@font-stack: 'Merriweather Sans', sans-serif;
+@font-stack-footer: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+@font-size: 16px;
+@primary-color: hsl(0, 0%, 0%);
+/*$primary-color: #AEAEAE;*/
+/*$header-color: #B9A931;*/
+/*$header-background-color: #eaebeb;*/
+/*$header-background-color: rgb(185, 169, 49);*/
+@header-background-color: hsl(210, 9%, 96%);
+/*$header-color:#266B9F;*/
+@color-gold: hsl(53, 58%, 46%);
+@header-color: hsl(206, 61%, 39%);
+@footer-bg-color: hsl(204, 42%, 47%);
+@footer-color: hsl(0, 100%, 100%);
+
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image: -moz-linear-gradient(@origin, @start, @stop);
+    background-image: -o-linear-gradient(@origin, @start, @stop);
+    background-image: -ms-linear-gradient(@origin, @start, @stop);
+    background-image: linear-gradient(@origin, @start, @stop);
+}
